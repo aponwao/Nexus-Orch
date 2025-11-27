@@ -4,10 +4,9 @@ import type { OnboardingStep, StepConfig, ProjectIdea, ProjectContext, ProjectSt
 const initialSteps: StepConfig[] = [
   { id: 1, name: 'Idea', description: 'Describe your app idea', isCompleted: false },
   { id: 2, name: 'Context', description: 'Define project context', isCompleted: false },
-  { id: 3, name: 'PRD', description: 'Review requirements', isCompleted: false },
-  { id: 4, name: 'Strategy', description: 'Select implementation', isCompleted: false },
-  { id: 5, name: 'Artifacts', description: 'Generate documents', isCompleted: false },
-  { id: 6, name: 'Route', description: 'Plan execution', isCompleted: false },
+  { id: 3, name: 'Strategy', description: 'Select implementation', isCompleted: false },
+  { id: 4, name: 'Artifacts', description: 'Generate PRD, Architecture, Schema', isCompleted: false },
+  { id: 5, name: 'Route', description: 'Plan execution', isCompleted: false },
 ];
 
 interface OnboardingStore {
@@ -39,7 +38,7 @@ export const useOnboardingStore = create<OnboardingStore>((set) => ({
   setCurrentStep: (step) => set({ currentStep: step }),
 
   nextStep: () => set((state) => ({
-    currentStep: state.currentStep < 6 ? (state.currentStep + 1) as OnboardingStep : state.currentStep,
+    currentStep: state.currentStep < 5 ? (state.currentStep + 1) as OnboardingStep : state.currentStep,
   })),
 
   previousStep: () => set((state) => ({

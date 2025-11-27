@@ -16,7 +16,7 @@ export interface Project {
   onboarding_completed: boolean;
 }
 
-export type OnboardingStep = 1 | 2 | 3 | 4 | 5 | 6;
+export type OnboardingStep = 1 | 2 | 3 | 4 | 5;
 
 export interface StepConfig {
   id: OnboardingStep;
