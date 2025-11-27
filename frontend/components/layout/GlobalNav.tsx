@@ -2,7 +2,7 @@ import React from 'react';
 
 const GlobalNav: React.FC = () => {
   return (
-    <nav className="w-16 h-full flex flex-col items-center py-5 border-r border-neutral-800/50 bg-[#0a0a0a] z-20 flex-shrink-0">
+    <nav className="w-12 h-full flex flex-col items-center py-4 border-r border-neutral-800/50 bg-[#0a0a0a] z-20 flex-shrink-0">
       <div className="mb-8 group cursor-pointer">
         <div className="w-8 h-8 rounded-md bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
           <svg className="text-white w-5 h-5 fill-white/20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
