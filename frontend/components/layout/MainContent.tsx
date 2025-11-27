@@ -113,7 +113,7 @@ const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSi
         </div>
       </header>
 
-      <div className="flex-1 min-h-0 overflow-y-auto flex flex-col pt-10 pr-8 pb-10 pl-8 items-center justify-center relative z-10">
+      <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-10 pr-8 pb-10 pl-8 items-center justify-center relative z-10">
         <div className="max-w-3xl w-full flex flex-col items-center text-center -mt-16">
           <div className="w-12 h-12 mb-6 rounded-lg bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 flex items-center justify-center backdrop-blur-sm bg-neutral-900/30">
             <Workflow className="w-6 h-6 text-indigo-400" />
