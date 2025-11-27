@@ -18,54 +18,9 @@ interface MainContentProps {
   isRightSidebarOpen: boolean;
 }
 
-const pulseSlowKeyframes = `
-@keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-}
-`;
-
-const pulseSlowerKeyframes = `
-@keyframes pulse-slower {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-}
-`;
-
 const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSidebarOpen }) => {
   return (
-    <main className="flex-1 flex flex-col relative bg-[#0a0a0a] min-h-0 min-w-0 overflow-hidden isolate">
-      <style>{pulseSlowKeyframes}</style>
-      <style>{pulseSlowerKeyframes}</style>
-      
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div 
-          className="absolute top-1/3 left-1/2 w-[800px] h-[800px] rounded-full" 
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, transparent 50%)',
-            animation: 'pulse-slow 8s ease-in-out infinite'
-          }}
-        ></div>
-        <div 
-          className="absolute top-1/2 left-1/3 w-[600px] h-[600px] rounded-full" 
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(168, 85, 247, 0.1) 0%, transparent 50%)',
-            animation: 'pulse-slower 10s ease-in-out infinite'
-          }}
-        ></div>
-      </div>
+    <main className="flex-1 flex flex-col relative bg-[#0a0a0a] min-h-0 min-w-0 overflow-hidden">
       <header className="h-16 flex-shrink-0 flex items-center justify-between px-6 border-b border-neutral-800/30 relative z-10 bg-[#0a0a0a]/50 backdrop-blur-xl">
         <div className="flex items-center gap-4">
           <button className="flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-sm font-medium text-neutral-200 transition-colors shadow-sm">
