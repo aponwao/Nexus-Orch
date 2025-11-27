@@ -9,9 +9,11 @@ import {
   Paperclip, 
   Mic, 
   BrainCircuit, 
-  ArrowUp 
+  ArrowUp,
+  Check
 } from 'lucide-react';
 import RotatingText from '../ui/RotatingText';
+import { useOnboardingStore } from '@/stores/useOnboardingStore';
 
 interface MainContentProps {
   toggleRightSidebar: () => void;
@@ -19,6 +21,8 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSidebarOpen }) => {
+  const { currentStep, steps } = useOnboardingStore();
+
   return (
     <main className="flex-1 flex flex-col relative bg-[#0a0a0a] min-h-0 min-w-0 overflow-hidden">
       <header className="h-16 flex-shrink-0 flex items-center justify-between px-6 border-b border-neutral-800/30 relative z-10 bg-[#0a0a0a]/50 backdrop-blur-xl">
@@ -81,28 +85,27 @@ const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSi
 
           <div className="w-full max-w-2xl flex flex-col gap-6">
             <div className="flex items-center justify-between px-2 w-full">
-              <div className="flex items-center gap-2">
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-500 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(99,102,241,0.5)]">1</span>
-                <span className="text-xs font-medium text-indigo-300">Idea</span>
-              </div>
-              <div className="h-px w-12 bg-indigo-500/30"></div>
-              
-              <div className="flex items-center gap-2 opacity-50">
-                <span className="flex items-center justify-center w-5 h-5 rounded-full border border-neutral-700 bg-neutral-900 text-[10px] text-neutral-500">2</span>
-                <span className="text-xs font-medium text-neutral-500">Context</span>
-              </div>
-              <div className="h-px w-12 bg-neutral-800"></div>
-
-              <div className="flex items-center gap-2 opacity-50">
-                <span className="flex items-center justify-center w-5 h-5 rounded-full border border-neutral-700 bg-neutral-900 text-[10px] text-neutral-500">3</span>
-                <span className="text-xs font-medium text-neutral-500">Artifacts</span>
-              </div>
-              <div className="h-px w-12 bg-neutral-800"></div>
-
-              <div className="flex items-center gap-2 opacity-50">
-                <span className="flex items-center justify-center w-5 h-5 rounded-full border border-neutral-700 bg-neutral-900 text-[10px] text-neutral-500">4</span>
-                <span className="text-xs font-medium text-neutral-500">Route</span>
-              </div>
+              {steps.map((step, index) => (
+                <React.Fragment key={step.id}>
+                  <div className={`flex items-center gap-2 ${step.id === currentStep ? '' : step.isCompleted ? '' : 'opacity-50'}`}>
+                    {step.isCompleted ? (
+                      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500 text-white shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+                        <Check className="w-3 h-3" />
+                      </span>
+                    ) : step.id === currentStep ? (
+                      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-500 text-[10px] font-bold text-white shadow-[0_0_10px_rgba(99,102,241,0.5)]">{step.id}</span>
+                    ) : (
+                      <span className="flex items-center justify-center w-5 h-5 rounded-full border border-neutral-700 bg-neutral-900 text-[10px] text-neutral-500">{step.id}</span>
+                    )}
+                    <span className={`text-xs font-medium ${step.id === currentStep ? 'text-indigo-300' : step.isCompleted ? 'text-emerald-300' : 'text-neutral-500'}`}>
+                      {step.name}
+                    </span>
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className={`h-px w-12 ${step.isCompleted ? 'bg-emerald-500/30' : step.id === currentStep ? 'bg-indigo-500/30' : 'bg-neutral-800'}`}></div>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
 
             <div className="w-full relative group">
