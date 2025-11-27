@@ -1,13 +1,10 @@
 import { ClerkProvider } from '@clerk/clerk-react';
+import AppLayout from '@/components/layout/AppLayout';
 
 const PUBLISHABLE_KEY = "pk_test_cmVmaW5lZC1maXNoLTg0LmNsZXJrLmFjY291bnRzLmRldiQ";
 
 const AppInner = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <h1 className="text-4xl font-bold text-center py-8">Project Management</h1>
-    </div>
-  );
+  return <AppLayout />;
 };
 
 const App = () => {
