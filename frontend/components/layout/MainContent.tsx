@@ -20,8 +20,8 @@ interface MainContentProps {
 
 const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSidebarOpen }) => {
   return (
-    <main className="flex-1 flex flex-col relative bg-[#0a0a0a] overflow-hidden isolate">
-      <header className="h-16 flex items-center justify-between px-6 border-b border-neutral-800/30 relative z-10 bg-[#0a0a0a]/50 backdrop-blur-xl">
+    <main className="flex-1 flex flex-col relative bg-[#0a0a0a] min-h-0 overflow-hidden isolate">
+      <header className="h-16 flex-shrink-0 flex items-center justify-between px-6 border-b border-neutral-800/30 relative z-10 bg-[#0a0a0a]/50 backdrop-blur-xl">
         <div className="flex items-center gap-4">
           <button className="flex items-center gap-2 px-3 py-1.5 rounded bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-sm font-medium text-neutral-200 transition-colors shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
@@ -68,7 +68,7 @@ const MainContent: React.FC<MainContentProps> = ({ toggleRightSidebar, isRightSi
         </div>
       </header>
 
-      <div className="flex-1 overflow-y-auto flex flex-col pt-10 pr-8 pb-10 pl-8 items-center justify-center relative z-10">
+      <div className="flex-1 min-h-0 overflow-y-auto flex flex-col pt-10 pr-8 pb-10 pl-8 items-center justify-center relative z-10">
         <div className="max-w-3xl w-full flex flex-col items-center text-center -mt-16">
           <div className="w-12 h-12 mb-6 rounded-lg bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 flex items-center justify-center backdrop-blur-sm bg-neutral-900/30">
             <Workflow className="w-6 h-6 text-indigo-400" />
