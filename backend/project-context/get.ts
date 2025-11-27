@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 
 interface GetProjectContextParams {
@@ -24,6 +25,19 @@ export interface ProjectContext {
 export const get = api<GetProjectContextParams, ProjectContext>(
   { expose: true, method: "GET", path: "/project-contexts/:projectId", auth: true },
   async ({ projectId }) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
+    const project = await db.queryRow<{ user_id: string }>`
+      SELECT user_id FROM projects WHERE id = ${projectId}
+    `;
+
+    if (!project || project.user_id !== authData.userID) {
+      throw APIError.permissionDenied("project not found or access denied");
+    }
+
     const context = await db.queryRow<ProjectContext>`
       SELECT project_id, primary_users, primary_users_comments,
              critical_actions, critical_actions_comments, builders,

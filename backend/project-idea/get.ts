@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 
 interface GetProjectIdeaParams {
@@ -24,6 +25,19 @@ export interface ProjectIdea {
 export const get = api<GetProjectIdeaParams, ProjectIdea>(
   { expose: true, method: "GET", path: "/project-ideas/:projectId", auth: true },
   async ({ projectId }) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
+    const project = await db.queryRow<{ user_id: string }>`
+      SELECT user_id FROM projects WHERE id = ${projectId}
+    `;
+
+    if (!project || project.user_id !== authData.userID) {
+      throw APIError.permissionDenied("project not found or access denied");
+    }
+
     const idea = await db.queryRow<ProjectIdea>`
       SELECT project_id, raw_idea, problems, problems_comments,
              target_users, target_users_comments, current_solutions,
