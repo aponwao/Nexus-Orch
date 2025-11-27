@@ -18,7 +18,7 @@ const ProjectSidebar: React.FC = () => {
   }, []);
 
   return (
-    <aside className="w-64 h-full flex flex-col bg-[#0c0c0c] border-r border-neutral-800/50 flex-shrink-0 z-10">
+    <aside className="w-64 h-full flex flex-col bg-[#0c0c0c] border-r border-neutral-800/50 flex-shrink-0 z-10 min-w-0">
       <div className="h-16 flex items-center justify-between px-4 border-b border-neutral-800/30 hover:bg-neutral-800/20 transition-colors group relative">
         <div className="flex flex-col justify-center cursor-pointer">
           <span className="text-[10px] text-neutral-500 font-medium uppercase tracking-wide">Current Project</span>

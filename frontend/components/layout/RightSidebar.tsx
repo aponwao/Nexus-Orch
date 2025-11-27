@@ -22,7 +22,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ isOpen, onClose }) => {
   return (
     <aside 
       className={`
-        border-l border-neutral-800/50 bg-[#0c0c0c] flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out relative
+        border-l border-neutral-800/50 bg-[#0c0c0c] flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out relative min-w-0
         ${isOpen ? 'w-80 opacity-100' : 'w-0 opacity-0 overflow-hidden'}
       `}
     >
