@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { colors, spacing } from '@/lib/design-system';
+import GlobalNav from './GlobalNav';
+import ProjectSidebar from './ProjectSidebar';
 
 const AppLayout: React.FC = () => {
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(true);
@@ -10,17 +12,8 @@ const AppLayout: React.FC = () => {
 
   return (
     <div className="flex h-screen w-full overflow-hidden text-neutral-300" style={{ backgroundColor: colors.background }}>
-      <div className={`${spacing.railWidth} h-full flex-shrink-0 border-r border-neutral-800/50`} style={{ backgroundColor: colors.background }}>
-        <div className="flex items-center justify-center h-full">
-          <div className="text-xs text-neutral-500">Global Nav</div>
-        </div>
-      </div>
-
-      <div className={`${spacing.sidebarWidth} h-full flex-shrink-0 border-r border-neutral-800/50`} style={{ backgroundColor: colors.surface }}>
-        <div className="flex items-center justify-center h-full">
-          <div className="text-xs text-neutral-500">Project Sidebar</div>
-        </div>
-      </div>
+      <GlobalNav />
+      <ProjectSidebar />
 
       <div className="flex-1 flex flex-col" style={{ backgroundColor: colors.background }}>
         <div className={`${spacing.headerHeight} border-b border-neutral-800/50 flex items-center justify-between px-6`}>
