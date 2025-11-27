@@ -1,5 +1,6 @@
 import { ClerkProvider } from '@clerk/clerk-react';
 import AppLayout from '@/components/layout/AppLayout';
+import './global-overflow-fix.css';
 
 const PUBLISHABLE_KEY = "pk_test_cmVmaW5lZC1maXNoLTg0LmNsZXJrLmFjY291bnRzLmRldiQ";
 
