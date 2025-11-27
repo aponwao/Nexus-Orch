@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 import type { Organization } from "./get";
 
@@ -19,6 +20,11 @@ interface UpdateOrganizationRequest {
 export const update = api<UpdateOrganizationRequest, Organization>(
   { expose: true, method: "PUT", path: "/organizations/:id", auth: true },
   async (req) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
     const { id, clerk_org_id, name, slug, plan, token_balance } = req;
 
     const updates: string[] = [];
@@ -52,11 +58,12 @@ export const update = api<UpdateOrganizationRequest, Organization>(
 
     updates.push(`updated_at = CURRENT_TIMESTAMP`);
     values.push(id);
+    values.push(authData.userID);
 
     const query = `
       UPDATE organizations
       SET ${updates.join(", ")}
-      WHERE id = $${paramIndex}
+      WHERE id = $${paramIndex} AND user_id = $${paramIndex + 1}
       RETURNING id, clerk_org_id, name, slug, plan, token_balance, created_at, updated_at
     `;
 

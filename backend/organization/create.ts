@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 import type { Organization } from "./get";
 
@@ -22,10 +23,15 @@ export const create = api<CreateOrganizationRequest, Organization>(
       token_balance = 0,
     } = req;
 
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
     try {
       const org = await db.queryRow<Organization>`
-        INSERT INTO organizations (clerk_org_id, name, slug, plan, token_balance)
-        VALUES (${clerk_org_id ?? null}, ${name}, ${slug}, ${plan}, ${token_balance})
+        INSERT INTO organizations (clerk_org_id, name, slug, plan, token_balance, user_id)
+        VALUES (${clerk_org_id ?? null}, ${name}, ${slug}, ${plan}, ${token_balance}, ${authData.userID})
         RETURNING id, clerk_org_id, name, slug, plan, token_balance, created_at, updated_at
       `;
 

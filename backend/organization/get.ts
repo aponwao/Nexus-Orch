@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 
 interface GetOrganizationParams {
@@ -20,10 +21,15 @@ export interface Organization {
 export const get = api<GetOrganizationParams, Organization>(
   { expose: true, method: "GET", path: "/organizations/:id", auth: true },
   async ({ id }) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
     const org = await db.queryRow<Organization>`
       SELECT id, clerk_org_id, name, slug, plan, token_balance, created_at, updated_at
       FROM organizations
-      WHERE id = ${id}
+      WHERE id = ${id} AND user_id = ${authData.userID}
     `;
 
     if (!org) {

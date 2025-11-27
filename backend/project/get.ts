@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 
 interface GetProjectParams {
@@ -23,12 +24,17 @@ export interface Project {
 export const get = api<GetProjectParams, Project>(
   { expose: true, method: "GET", path: "/projects/:id", auth: true },
   async ({ id }) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
     const project = await db.queryRow<Project>`
       SELECT id, organization_id, name, description, builder_type,
              onboarding_step, onboarding_completed, github_repo_url,
              github_status, created_at, updated_at
       FROM projects
-      WHERE id = ${id}
+      WHERE id = ${id} AND user_id = ${authData.userID}
     `;
 
     if (!project) {

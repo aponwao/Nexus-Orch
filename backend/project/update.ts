@@ -1,4 +1,5 @@
 import { api, APIError } from "encore.dev/api";
+import { getAuthData } from "~encore/auth";
 import db from "../db";
 import type { Project } from "./get";
 
@@ -17,6 +18,11 @@ interface UpdateProjectRequest {
 export const update = api<UpdateProjectRequest, Project>(
   { expose: true, method: "PUT", path: "/projects/:id", auth: true },
   async (req) => {
+    const authData = getAuthData();
+    if (!authData) {
+      throw APIError.unauthenticated("authentication required");
+    }
+
     const {
       id,
       name,
@@ -67,11 +73,12 @@ export const update = api<UpdateProjectRequest, Project>(
 
     updates.push(`updated_at = CURRENT_TIMESTAMP`);
     values.push(id);
+    values.push(authData.userID);
 
     const query = `
       UPDATE projects
       SET ${updates.join(", ")}
-      WHERE id = $${paramIndex}
+      WHERE id = $${paramIndex} AND user_id = $${paramIndex + 1}
       RETURNING id, organization_id, name, description, builder_type,
                 onboarding_step, onboarding_completed, github_repo_url,
                 github_status, created_at, updated_at
