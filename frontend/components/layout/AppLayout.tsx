@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { colors, spacing } from '@/lib/design-system';
 import GlobalNav from './GlobalNav';
 import ProjectSidebar from './ProjectSidebar';
+import MainContent from './MainContent';
 
 const AppLayout: React.FC = () => {
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(true);
@@ -15,21 +16,10 @@ const AppLayout: React.FC = () => {
       <GlobalNav />
       <ProjectSidebar />
 
-      <div className="flex-1 flex flex-col" style={{ backgroundColor: colors.background }}>
-        <div className={`${spacing.headerHeight} border-b border-neutral-800/50 flex items-center justify-between px-6`}>
-          <div className="text-xs text-neutral-500">Main Header</div>
-          <button
-            onClick={toggleRightSidebar}
-            className="px-3 py-1.5 text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
-          >
-            Toggle Right
-          </button>
-        </div>
-
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-xs text-neutral-500">Main Content</div>
-        </div>
-      </div>
+      <MainContent 
+        toggleRightSidebar={toggleRightSidebar} 
+        isRightSidebarOpen={isRightSidebarOpen} 
+      />
 
       <div
         className={`${spacing.rightPanelWidth} h-full flex-shrink-0 border-l border-neutral-800/50 transition-all duration-300 ease-in-out ${
