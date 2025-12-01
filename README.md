@@ -1,734 +1,733 @@
 # NEXUS ORCHESTRATOR
-## El Sistema Operativo para Vibe Coding
-### Documento Maestro de Producto y Estrategia
----
+## The Operating System for Vibe Coding
+### Master Product and Strategy Document
 
-## 1. Resumen Ejecutivo
+## 1. Executive Summary
 
-Nexus Orchestrator es una plataforma SaaS diseñada para actuar como el **Sistema Operativo del Desarrollo Agéntico**. En un ecosistema donde herramientas como Claude, Cursor, Devin y Leap permiten a usuarios no técnicos generar código mediante lenguaje natural ("Vibe Coding"), Nexus emerge como la capa de gobierno, supervisión y orquestación que garantiza que el código generado sea mantenible, seguro y escalable.
+Nexus Orchestrator is a SaaS platform designed to serve as the **Operating System for Agentic Development**. In an ecosystem where tools like Claude, Cursor, Devin, and Leap enable non-technical users to generate code through natural language ("Vibe Coding"), Nexus emerges as the governance, supervision, and orchestration layer that ensures generated code is maintainable, secure, and scalable.
 
-La plataforma combina tres roles críticos en una sola interfaz:
-- **Arquitecto de Software** — define la estructura
-- **Project Manager** — coordina la ejecución
-- **Auditor de Calidad** — valida los resultados
-
----
-
-## 2. El Problema: La Paradoja del Vibe Coding
-
-El Vibe Coding ha democratizado el desarrollo de software, pero ha creado una nueva categoría de usuarios: los **"Conductores Ciegos"** — personas con acceso a motores extremadamente potentes (LLMs generadores de código) pero sin mapa, sin GPS y sin mecánico.
-
-### 2.1 Los Cuatro Fallos Sistémicos
-
-| Fallo | Descripción |
-|-------|-------------|
-| **Ambigüedad** | El usuario no sabe cómo especificar técnicamente lo que quiere. Las IAs interpretan instrucciones vagas de formas inconsistentes. |
-| **Amnesia** | Las IAs generadoras pierden contexto entre sesiones. Cada prompt empieza desde cero, ignorando decisiones arquitectónicas previas. |
-| **Fragilidad** | El código generado frecuentemente contiene bugs lógicos, vulnerabilidades de seguridad y patrones no escalables que el usuario no puede detectar. |
-| **Alucinaciones** | Las IAs inventan APIs inexistentes, métodos ficticios, o dependencias obsoletas. El código parece correcto sintácticamente pero falla en ejecución porque referencia recursos que no existen en la realidad. |
-
-### 2.2 El Escenario Típico de Fracaso
-
-Un usuario inicia un proyecto con entusiasmo. Tras varias iteraciones, errores y parches improvisados, termina con un **"Código Frankenstein"** — funcional a medias, imposible de mantener y costoso de escalar. El proyecto muere o requiere reescritura completa por un equipo técnico.
+The platform combines three critical roles in a single interface:
+- **Software Architect** — defines the structure
+- **Project Manager** — coordinates execution
+- **Quality Auditor** — validates results
 
 ---
 
-## 3. La Solución: El Ciclo de Confianza de Nexus
+## 2. The Problem: The Vibe Coding Paradox
 
-Nexus no reemplaza a los agentes generadores de código; los **supervisa, coordina y audita**. Actúa como un GPS inteligente que no conduce el vehículo, pero sí:
+Vibe Coding has democratized software development, but it has created a new category of users: the **"Blind Drivers"** — people with access to extremely powerful engines (code-generating LLMs) but without a map, without GPS, and without a mechanic.
 
-1. **Define el destino** antes de arrancar (Discovery Socrático)
-2. **Calcula la ruta óptima** con puntos de verificación (Generación de Artefactos)
-3. **Monitorea el trayecto** y recalcula si hay desvíos (Sincronización Continua)
-4. **Verifica la llegada** y audita la integridad (Quality Gates)
+### 2.1 The Four Systemic Failures
 
-### 3.1 Las Cuatro Fases del Workflow Nexus
+| Failure | Description |
+|---------|-------------|
+| **Ambiguity** | Users don't know how to technically specify what they want. AIs interpret vague instructions inconsistently. |
+| **Amnesia** | Code-generating AIs lose context between sessions. Each prompt starts from scratch, ignoring previous architectural decisions. |
+| **Fragility** | Generated code frequently contains logic bugs, security vulnerabilities, and non-scalable patterns that users cannot detect. |
+| **Hallucinations** | AIs invent non-existent APIs, fictional methods, or obsolete dependencies. Code appears syntactically correct but fails at runtime because it references resources that don't exist in reality. |
 
-#### Fase 1: Ingeniería de Contexto (Onboarding Socrático)
+### 2.2 The Typical Failure Scenario
 
-El usuario no llega a un chat vacío. Llega a una **Sala de Situación** donde Nexus guía la definición del proyecto mediante preguntas estratégicas antes de escribir una sola línea de código.
+A user starts a project with enthusiasm. After several iterations, errors, and improvised patches, they end up with **"Frankenstein Code"** — partially functional, impossible to maintain, and costly to scale. The project dies or requires complete rewrite by a technical team.
 
-Esta fase genera el **Sistema de Artefactos Nexus** — cuatro documentos vivos que evolucionan con el proyecto:
+---
 
-| Artefacto | Propósito | Generación |
-|-----------|-----------|------------|
-| **PRD.md** | Qué se va a construir (funcionalidades, user stories) | Onboarding Socrático |
-| **CONSTITUTION.md** | Reglas inquebrantables del proyecto (estándares, límites) | Onboarding Socrático |
-| **ARCHITECTURE.md** | Stack tecnológico y decisiones de infraestructura | Auto-generado desde Implementation Planner |
-| **SCHEMA.md** | Modelo de datos, tablas, relaciones | Generado al definir entidades |
+## 3. The Solution: The Nexus Trust Cycle
 
-> **Datos Operacionales (en Base de Datos, no artefactos):**
-> - **Decision Journal:** Bitácora de decisiones con links a conversaciones. Almacenado en tabla `decisions` para queries durante Context Refresh.
-> - **Error Log:** Historial de errores con diagnósticos y soluciones. Almacenado en tabla `error_logs` para detección de patrones y métricas.
+Nexus doesn't replace code-generating agents; it **supervises, coordinates, and audits** them. It acts as an intelligent GPS that doesn't drive the vehicle but does:
+
+1. **Define the destination** before starting (Socratic Discovery)
+2. **Calculate the optimal route** with checkpoints (Artifact Generation)
+3. **Monitor the journey** and recalculate if there are deviations (Continuous Synchronization)
+4. **Verify arrival** and audit integrity (Quality Gates)
+
+### 3.1 The Four Phases of the Nexus Workflow
+
+#### Phase 1: Context Engineering (Socratic Onboarding)
+
+The user doesn't arrive at an empty chat. They arrive at a **Situation Room** where Nexus guides project definition through strategic questions before writing a single line of code.
+
+This phase generates the **Nexus Artifact System** — four living documents that evolve with the project:
+
+| Artifact | Purpose | Generation |
+|----------|---------|------------|
+| **PRD.md** | What will be built (features, user stories) | Socratic Onboarding |
+| **CONSTITUTION.md** | Unbreakable project rules (standards, limits) | Socratic Onboarding |
+| **ARCHITECTURE.md** | Technology stack and infrastructure decisions | Auto-generated from Implementation Planner |
+| **SCHEMA.md** | Data model, tables, relationships | Generated when defining entities |
+
+> **Operational Data (in Database, not artifacts):**
+> - **Decision Journal:** Decision log with links to conversations. Stored in `decisions` table for queries during Context Refresh.
+> - **Error Log:** Error history with diagnostics and solutions. Stored in `error_logs` table for pattern detection and metrics.
 > 
-> Estos datos son consultables desde la UI con filtros, búsqueda y ordenamiento, pero no son exportables como archivos markdown.
+> This data is queryable from the UI with filters, search, and sorting, but not exportable as markdown files.
 
-> **Nota sobre el Roadmap:** El roadmap NO es un artefacto markdown. Es un **módulo de interfaz** en Nexus con datos almacenados en base de datos. Muestra fases, sprints, tareas atómicas con sus prompts, y estados de progreso. Durante el Context Refresh, Nexus consulta este módulo para recuperar tareas pendientes y completadas.
+> **Note about the Roadmap:** The roadmap is NOT a markdown artifact. It's an **interface module** in Nexus with data stored in the database. It shows phases, sprints, atomic tasks with their prompts, and progress states. During Context Refresh, Nexus queries this module to retrieve pending and completed tasks.
 
-> **Principio clave:** Cada artefacto está vinculado bidireccionalmente a las conversaciones donde se originó. El usuario puede hacer clic en cualquier decisión y ver el contexto completo del chat donde se discutió.
+> **Key principle:** Each artifact is bidirectionally linked to the conversations where it originated. Users can click on any decision and see the complete context of the chat where it was discussed.
 
-#### Fase 2: GPS de Ejecución (Sincronización Profunda)
+#### Phase 2: Execution GPS (Deep Synchronization)
 
-Nexus genera prompts optimizados secuenciales para el agente generador (Leap, Devin, Cursor). Cuando el usuario toma decisiones manuales que desvían del plan original:
+Nexus generates optimized sequential prompts for the generating agent (Leap, Devin, Cursor). When the user makes manual decisions that deviate from the original plan:
 
-- **Detección automática:** Nexus lee el estado real del repositorio y base de datos
-- **Recálculo de ruta:** Actualiza los prompts siguientes para reflejar la nueva realidad
-- **Actualización de artefactos:** Reescribe SCHEMA.md, ARCHITECTURE.md automáticamente
+- **Automatic detection:** Nexus reads the actual state of the repository and database
+- **Route recalculation:** Updates subsequent prompts to reflect the new reality
+- **Artifact updates:** Automatically rewrites SCHEMA.md, ARCHITECTURE.md
 
-#### Fase 3: Auditoría y Quality Gates
+#### Phase 3: Auditing and Quality Gates
 
-Nexus integra IAs especializadas para validar el trabajo de los builders:
-- **CodeRabbit** — Revisión automatizada de código y detección de vulnerabilidades
-- **TestSprite** — Generación y ejecución de pruebas automatizadas
+Nexus integrates specialized AIs to validate builder work:
+- **CodeRabbit** — Automated code review and vulnerability detection
+- **TestSprite** — Automated test generation and execution
 
-#### Fase 4: Resiliencia y Recuperación
+#### Phase 4: Resilience and Recovery
 
-El **"Botón de Pánico"** elimina el miedo a romperlo todo. Nexus guarda snapshots de arquitectura antes de cada sprint grande, permitiendo rollback instantáneo a estados estables previos con un solo clic.
+The **"Panic Button"** eliminates the fear of breaking everything. Nexus saves architecture snapshots before each major sprint, allowing instant rollback to previous stable states with a single click.
 
 ---
 
-## 4. Arquitectura Cognitiva de Nexus
+## 4. Nexus Cognitive Architecture
 
-### 4.1 Knowledge Base de Plataformas (Builder Intelligence)
+### 4.1 Platform Knowledge Base (Builder Intelligence)
 
-Nexus mantiene una base de conocimiento indexada de cada plataforma de Vibe Coding:
+Nexus maintains an indexed knowledge base of each Vibe Coding platform:
 
-| Plataforma | Información Indexada |
-|------------|---------------------|
-| **Leap.new** | Stack soportado (Next.js, Clerk, Neon, Stripe), limitaciones, mejores prácticas, integraciones nativas |
-| **Cursor** | Extensiones, modelos disponibles, patrones de prompting efectivos |
-| **Devin** | Capacidades de ejecución, acceso a terminal, límites de autonomía |
-| **Lovable** | Componentes UI, templates, restricciones de deployment |
+| Platform | Indexed Information |
+|----------|---------------------|
+| **Leap.new** | Supported stack (Next.js, Clerk, Neon, Stripe), limitations, best practices, native integrations |
+| **Cursor** | Extensions, available models, effective prompting patterns |
+| **Devin** | Execution capabilities, terminal access, autonomy limits |
+| **Lovable** | UI components, templates, deployment restrictions |
 
-**Flujo de Arquitectura Inteligente:**
+**Intelligent Architecture Flow:**
 
-1. **Detección:** Usuario indica qué builder usará (ej: "Usaré Leap.new")
-2. **Consulta:** Nexus consulta su Knowledge Base sobre las capacidades de Leap
-3. **Pre-configuración:** Nexus sabe que Leap soporta Clerk + Neon + Stripe nativamente
-4. **Decisiones mínimas:** Solo pregunta al usuario las decisiones clave que Leap permite customizar
-5. **Auto-generación:** ARCHITECTURE.md se genera automáticamente con el stack óptimo para ese builder
+1. **Detection:** User indicates which builder they'll use (e.g., "I'll use Leap.new")
+2. **Query:** Nexus queries its Knowledge Base about Leap's capabilities
+3. **Pre-configuration:** Nexus knows Leap natively supports Clerk + Neon + Stripe
+4. **Minimal decisions:** Only asks user about key decisions Leap allows to customize
+5. **Auto-generation:** ARCHITECTURE.md is automatically generated with the optimal stack for that builder
 
-> **Ejemplo:** Si el usuario elige Leap.new, Nexus ya sabe que usará Clerk para auth y Neon para DB. Solo preguntará: "¿Stripe o Paddle para pagos?" o "¿Necesitas emails transaccionales?"
+> **Example:** If the user chooses Leap.new, Nexus already knows it will use Clerk for auth and Neon for DB. It will only ask: "Stripe or Paddle for payments?" or "Do you need transactional emails?"
 
-### 4.2 Sistema RAG (Memoria Vectorial)
+### 4.2 RAG System (Vector Memory)
 
-Todos los artefactos, conversaciones y decisiones se almacenan en una base de datos vectorial:
+All artifacts, conversations, and decisions are stored in a vector database:
 
-- **Ingesta:** Documentos se dividen en chunks de 500 tokens con metadata (fecha, tipo, links)
-- **Embedding:** Vectorización con text-embedding-3-small
-- **Storage:** pgvector en Neon (la misma DB del proyecto)
-- **Consulta:** Similarity search para enriquecer cada prompt con contexto relevante
+- **Ingestion:** Documents are split into 500-token chunks with metadata (date, type, links)
+- **Embedding:** Vectorization with text-embedding-3-small
+- **Storage:** pgvector on Neon (the same project DB)
+- **Query:** Similarity search to enrich each prompt with relevant context
 
-### 4.3 Context Refresh System (Gestión de Ventana de Contexto)
+### 4.3 Context Refresh System (Context Window Management)
 
-**El Problema:** Los LLMs tienen ventanas de contexto limitadas. En proyectos largos, el usuario recibe el temido mensaje "debes iniciar un nuevo chat".
+**The Problem:** LLMs have limited context windows. In long projects, users receive the dreaded message "you must start a new chat".
 
-**La Solución Nexus:** Sistema proactivo de renovación de contexto.
+**The Nexus Solution:** Proactive context renewal system.
 
-| Fase | Trigger | Acción |
-|------|---------|--------|
-| **Monitoreo** | Uso de contexto > 70% | Indicador visual amarillo en UI |
-| **Alerta** | Uso de contexto > 85% | Notificación: "Prepárate para Context Refresh" |
-| **Refresh** | Uso de contexto > 90% | Nexus ejecuta protocolo de renovación |
+| Phase | Trigger | Action |
+|-------|---------|--------|
+| **Monitoring** | Context usage > 70% | Yellow visual indicator in UI |
+| **Alert** | Context usage > 85% | Notification: "Prepare for Context Refresh" |
+| **Refresh** | Context usage > 90% | Nexus executes renewal protocol |
 
-**Protocolo de Context Refresh:**
+**Context Refresh Protocol:**
 
-1. **Snapshot:** Guarda estado actual de la conversación
-2. **Consulta RAG:** Recupera de la base vectorial:
-   - Últimas versiones de los 4 artefactos (PRD, Constitution, Architecture, Schema)
-3. **Consulta Módulo Roadmap:** Recupera de la base de datos:
-   - Tareas pendientes y completadas
-   - Sprint activo y progreso
-   - Prompts asociados a tareas próximas
-4. **Consulta Decision Journal (DB):** 
-   - Decisiones críticas (impact_level = 'high' o 'critical')
-   - Últimas 10 decisiones técnicas
-5. **Consulta Error Log (DB):** 
-   - Últimos 5 errores y sus soluciones
-   - Patrones de errores recurrentes (errores que ocurrieron 2+ veces)
-6. **Consulta Integraciones:**
-   - PRs abiertos en GitHub y su estado
-   - Tickets activos en Linear
-7. **Síntesis:** Genera un "Context Bundle" comprimido con lo esencial
-8. **Nuevo Chat:** Inicia conversación fresca con el Context Bundle inyectado
-9. **Continuidad:** El usuario continúa exactamente donde estaba, sin pérdida de contexto
+1. **Snapshot:** Saves current conversation state
+2. **RAG Query:** Retrieves from vector database:
+   - Latest versions of the 4 artifacts (PRD, Constitution, Architecture, Schema)
+3. **Roadmap Module Query:** Retrieves from database:
+   - Pending and completed tasks
+   - Active sprint and progress
+   - Prompts associated with upcoming tasks
+4. **Decision Journal Query (DB):** 
+   - Critical decisions (impact_level = 'high' or 'critical')
+   - Last 10 technical decisions
+5. **Error Log Query (DB):** 
+   - Last 5 errors and their solutions
+   - Recurring error patterns (errors that occurred 2+ times)
+6. **Integrations Query:**
+   - Open PRs in GitHub and their status
+   - Active tickets in Linear
+7. **Synthesis:** Generates a compressed "Context Bundle" with essentials
+8. **New Chat:** Starts fresh conversation with Context Bundle injected
+9. **Continuity:** User continues exactly where they were, without context loss
 
-> **Resultado:** El usuario nunca pierde el hilo. Nexus garantiza continuidad incluso en proyectos de meses de duración.
+> **Result:** User never loses track. Nexus guarantees continuity even in projects lasting months.
 
-### 4.4 Integraciones (Nexus Connect)
+### 4.4 Integrations (Nexus Connect)
 
-- **Builders:** Leap (nativo), Devin, Cursor, Lovable
+- **Builders:** Leap (native), Devin, Cursor, Lovable
 - **Auditors:** CodeRabbit, TestSprite
-- **Trackers:** Linear (sincronización bidireccional de tareas y estados)
-- **Repositorios:** GitHub (webhooks, PRs, estado en tiempo real)
+- **Trackers:** Linear (bidirectional task and status synchronization)
+- **Repositories:** GitHub (webhooks, PRs, real-time status)
 
 ---
 
-## 5. Interfaz de Usuario
+## 5. User Interface
 
-> **Nota:** El diseño base ya existe en HTML. Esta sección documenta la estructura de navegación y mejoras sugeridas.
+> **Note:** The base design already exists in HTML. This section documents the navigation structure and suggested improvements.
 
-### 5.1 Estructura de Navegación
+### 5.1 Navigation Structure
 
 #### Header
-| Elemento | Función |
-|----------|---------|
-| **Logo/Proyecto** | Nombre del proyecto activo con selector |
-| **Selector de Modelo** | Cambiar entre Claude, GPT-4, etc. |
-| **Context Meter** | Barra de uso de ventana de contexto (%) |
-| **Stack Layers Icon** | Abre drawer con información del stack tecnológico |
-| **Breadcrumbs** | Trail de navegación actual |
+| Element | Function |
+|---------|----------|
+| **Logo/Project** | Active project name with selector |
+| **Model Selector** | Switch between Claude, GPT-4, etc. |
+| **Context Meter** | Context window usage bar (%) |
+| **Stack Layers Icon** | Opens drawer with technology stack information |
+| **Breadcrumbs** | Current navigation trail |
 
-#### Menú Vertical (Sidebar Izquierdo)
-| Elemento | Función |
-|----------|---------|
-| **Orchestrator** | Chat principal con Nexus (vista default) |
-| **Dashboard** | Panel de control con métricas y estado general |
-| **Roadmap** | Módulo de fases, sprints y tareas con prompts |
-| **Knowledge Base** | Artefactos del proyecto (PRD, Schema, etc.) |
-| **Integraciones** | GitHub, Linear, CodeRabbit — estados y configuración |
-| **Historial** | Conversaciones pasadas con búsqueda |
+#### Vertical Menu (Left Sidebar)
+| Element | Function |
+|---------|----------|
+| **Orchestrator** | Main chat with Nexus (default view) |
+| **Dashboard** | Control panel with metrics and general status |
+| **Roadmap** | Phases, sprints, and tasks module with prompts |
+| **Knowledge Base** | Project artifacts (PRD, Schema, etc.) |
+| **Integrations** | GitHub, Linear, CodeRabbit — statuses and configuration |
+| **History** | Past conversations with search |
 
 ### 5.2 Stack Layers Drawer
 
-Drawer que se abre desde el icono en el header. Muestra información simplificada del stack:
+Drawer that opens from the header icon. Shows simplified stack information:
 
-| Capa | Información |
-|------|-------------|
-| **Frontend** | Framework, versión, estado de sync |
-| **Database** | Provider (Neon), tablas, última migración |
-| **Auth** | Provider (Clerk), usuarios activos |
-| **Payments** | Provider (Stripe/Paddle), estado de integración |
-| **Hosting** | Vercel/otro, último deploy, status |
+| Layer | Information |
+|-------|-------------|
+| **Frontend** | Framework, version, sync status |
+| **Database** | Provider (Neon), tables, last migration |
+| **Auth** | Provider (Clerk), active users |
+| **Payments** | Provider (Stripe/Paddle), integration status |
+| **Hosting** | Vercel/other, last deploy, status |
 
-Cada capa muestra:
-- Estado: 🟢 Sincronizado, 🟡 Pendiente, 🔴 Error
-- Último cambio con timestamp
-- Link rápido a documentación/dashboard del servicio
+Each layer shows:
+- Status: 🟢 Synced, 🟡 Pending, 🔴 Error
+- Last change with timestamp
+- Quick link to service documentation/dashboard
 
-### 5.3 Panel Derecho (Live Architecture)
+### 5.3 Right Panel (Live Architecture)
 
-Panel contextual que muestra información relevante según la vista activa:
+Contextual panel showing relevant information based on active view:
 
-#### En vista Orchestrator:
-- **Health Score:** Indicador 0-100 con breakdown
-- **Sprint Actual:** Progreso y próximas tareas
-- **Context Health:** Uso de ventana de contexto
+#### In Orchestrator View:
+- **Health Score:** 0-100 indicator with breakdown
+- **Current Sprint:** Progress and upcoming tasks
+- **Context Health:** Context window usage
 - **Quick Actions:** Restore Stable, Sync, Export
 
-#### En vista Dashboard:
-- Métricas expandidas
-- Gráficos de tendencia
-- Alertas activas
+#### In Dashboard View:
+- Expanded metrics
+- Trend charts
+- Active alerts
 
-#### En vista Roadmap:
-- Timeline visual del proyecto
-- Filtros por estado/sprint
+#### In Roadmap View:
+- Visual project timeline
+- Filters by status/sprint
 
-### 5.4 Elementos Nuevos Sugeridos
+### 5.4 Suggested New Elements
 
-| Elemento | Ubicación | Función |
-|----------|-----------|---------|
-| **Decision Breadcrumb** | Sobre el chat | Trail de decisiones clave tomadas en la sesión |
-| **Hallucination Alert** | Inline en chat | Badge rojo cuando se detecta referencia a API/método inexistente |
-| **Chat Link Badge** | En artefactos | Icono clickeable que lleva al chat donde se originó esa sección |
-| **Prompt Copy Button** | En tareas del Roadmap | Copiar prompt optimizado con un clic |
-| **Learning Mode Toggle** | Header o Settings | Activar/desactivar explicaciones pedagógicas |
+| Element | Location | Function |
+|---------|----------|----------|
+| **Decision Breadcrumb** | Above chat | Trail of key decisions made in session |
+| **Hallucination Alert** | Inline in chat | Red badge when non-existent API/method reference detected |
+| **Chat Link Badge** | In artifacts | Clickable icon leading to chat where that section originated |
+| **Prompt Copy Button** | In Roadmap tasks | Copy optimized prompt with one click |
+| **Learning Mode Toggle** | Header or Settings | Enable/disable pedagogical explanations |
 
 ---
 
-## 6. Validación de Viabilidad
+## 6. Viability Validation
 
-### 6.1 Fortalezas del Proyecto
+### 6.1 Project Strengths
 
-✅ **Dolor real y validado:** El problema del "código Frankenstein" es ubicuo en la comunidad de Vibe Coding
+✅ **Real and validated pain:** The "Frankenstein code" problem is ubiquitous in the Vibe Coding community
 
-✅ **Diferenciación clara:** No compite con builders, los complementa (capa de orquestación)
+✅ **Clear differentiation:** Doesn't compete with builders, complements them (orchestration layer)
 
-✅ **Diseño de UI definido:** Interfaz diseñada en HTML lista para implementación
+✅ **Defined UI design:** Interface designed in HTML ready for implementation
 
-✅ **Integraciones estratégicas:** GitHub, Linear, CodeRabbit cubren el ciclo completo
+✅ **Strategic integrations:** GitHub, Linear, CodeRabbit cover the complete cycle
 
-✅ **Modelo de negocio viable:** SaaS con tiers basados en tokens/auditorías
+✅ **Viable business model:** SaaS with tiers based on tokens/audits
 
-✅ **Builder-first approach:** Knowledge Base de plataformas permite arquitectura inteligente automática
+✅ **Builder-first approach:** Platform Knowledge Base enables automatic intelligent architecture
 
-### 6.2 Riesgos y Mitigaciones
+### 6.2 Risks and Mitigations
 
-| Riesgo | Impacto | Mitigación |
-|--------|---------|------------|
-| Dependencia de APIs externas | Costos variables, latencia | Multi-provider, cache agresivo |
-| Complejidad de sincronización | Bugs en estado, conflictos | Event sourcing, snapshots frecuentes |
-| Adopción de builders | Fragmentación del mercado | Leap nativo + API abierta |
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| External API dependency | Variable costs, latency | Multi-provider, aggressive caching |
+| Synchronization complexity | State bugs, conflicts | Event sourcing, frequent snapshots |
+| Builder adoption | Market fragmentation | Native Leap + open API |
 
-### 6.3 Veredicto de Viabilidad
+### 6.3 Viability Verdict
 
-> **✅ VIABLE CON ALTA PROBABILIDAD DE ÉXITO**
+> **✅ VIABLE WITH HIGH PROBABILITY OF SUCCESS**
 > 
-> El proyecto resuelve un dolor real con una propuesta diferenciada. La ejecución técnica es ambiciosa pero alcanzable con el stack elegido. Se recomienda priorizar la integración nativa con Leap y el módulo de Reverse Sync para captar usuarios con proyectos existentes.
+> The project solves a real pain with a differentiated proposition. Technical execution is ambitious but achievable with the chosen stack. Recommended to prioritize native Leap integration and Reverse Sync module to capture users with existing projects.
 
 ---
 
-## 7. Features del Producto
+## 7. Product Features
 
-### 7.1 Features Core del Workflow
+### 7.1 Core Workflow Features
 
-#### A. Onboarding Socrático (Discovery Engine)
-`Categoría: CORE` `Prioridad: CRÍTICA`
+#### A. Socratic Onboarding (Discovery Engine)
+`Category: CORE` `Priority: CRITICAL`
 
-Sistema de ingeniería de contexto que guía al usuario antes de escribir código:
+Context engineering system that guides users before writing code:
 
-- **Input Multimodal:** Acepta idea en texto, audio o PDF
-- **Stepper Visual:** Barra de progreso interactiva (Idea → Contexto → PRD → Strategy → Artefactos → Ruta)
-- **Preguntas Estratégicas:** Nexus hace preguntas específicas para eliminar ambigüedad
-- **Generación de Artefactos:** Crea PRD.md, CONSTITUTION.md automáticamente
-- **Validación de Alcance:** Confirma con el usuario antes de avanzar
-- **Detección de Builder:** Identifica qué plataforma usará (Leap, Cursor, etc.) para auto-configurar arquitectura
-- **Implementation Strategy:** Presenta opciones de implementación por feature con costos (ver Feature W)
+- **Multimodal Input:** Accepts idea in text, audio, or PDF
+- **Visual Stepper:** Interactive progress bar (Idea → Context → PRD → Strategy → Artifacts → Route)
+- **Strategic Questions:** Nexus asks specific questions to eliminate ambiguity
+- **Artifact Generation:** Creates PRD.md, CONSTITUTION.md automatically
+- **Scope Validation:** Confirms with user before proceeding
+- **Builder Detection:** Identifies which platform will be used (Leap, Cursor, etc.) to auto-configure architecture
+- **Implementation Strategy:** Presents implementation options per feature with costs (see Feature W)
 
-**Flujo:**
-1. Usuario describe idea
-2. Nexus hace 3-5 preguntas clave
-3. Genera PRD.md borrador
-4. Usuario aprueba/edita
-5. **[NUEVO]** Nexus presenta Implementation Strategy Dashboard
-6. Usuario selecciona estrategia por feature
-7. Nexus genera CONSTITUTION.md y ARCHITECTURE.md
-8. Genera Roadmap con tareas, builders asignados y prompts
-9. Inicia fase de ejecución
+**Flow:**
+1. User describes idea
+2. Nexus asks 3-5 key questions
+3. Generates draft PRD.md
+4. User approves/edits
+5. **[NEW]** Nexus presents Implementation Strategy Dashboard
+6. User selects strategy per feature
+7. Nexus generates CONSTITUTION.md and ARCHITECTURE.md
+8. Generates Roadmap with tasks, assigned builders, and prompts
+9. Begins execution phase
 
 ---
 
-#### B. GPS de Ejecución (Prompt Orchestrator)
-`Categoría: CORE` `Prioridad: CRÍTICA`
+#### B. Execution GPS (Prompt Orchestrator)
+`Category: CORE` `Priority: CRITICAL`
 
-Motor de generación y secuenciación de prompts optimizados:
+Optimized prompt generation and sequencing engine:
 
-- **Prompt Sequencing:** Genera prompts en orden lógico de dependencias
-- **Builder Optimization:** Adapta el prompt al estilo del builder elegido (Leap vs Cursor vs Devin)
-- **Context Injection:** Cada prompt incluye contexto relevante del proyecto
-- **Copy-Ready:** Botón para copiar prompt formateado listo para pegar
-- **Dependency Tracking:** No genera prompt de feature B hasta que A esté completo
-- **Rollback de Prompts:** Si un prompt falla, genera alternativa
+- **Prompt Sequencing:** Generates prompts in logical dependency order
+- **Builder Optimization:** Adapts prompt to chosen builder's style (Leap vs Cursor vs Devin)
+- **Context Injection:** Each prompt includes relevant project context
+- **Copy-Ready:** Button to copy formatted prompt ready to paste
+- **Dependency Tracking:** Doesn't generate feature B prompt until A is complete
+- **Prompt Rollback:** If a prompt fails, generates alternative
 
-**Formato de Prompt Generado:**
+**Generated Prompt Format:**
 ```
-[Contexto del Proyecto]
-[Referencia a CONSTITUTION.md]
-[Tarea específica]
-[Criterios de aceptación]
-[Advertencias basadas en errores previos]
+[Project Context]
+[Reference to CONSTITUTION.md]
+[Specific Task]
+[Acceptance Criteria]
+[Warnings based on previous errors]
 ```
 
 ---
 
-#### C. Sincronización con Repositorio (Repo Sync)
-`Categoría: CORE` `Prioridad: CRÍTICA`
+#### C. Repository Synchronization (Repo Sync)
+`Category: CORE` `Priority: CRITICAL`
 
-Conexión en tiempo real con el estado del código:
+Real-time connection with code state:
 
-- **GitHub Webhooks:** Detecta commits, PRs, merges automáticamente
-- **State Diffing:** Compara estado esperado vs estado real del repo
-- **Schema Detection:** Lee base de datos y detecta cambios en tablas
-- **Auto-Update Artifacts:** Actualiza SCHEMA.md, ARCHITECTURE.md cuando hay cambios
-- **Conflict Detection:** Alerta cuando código diverge del plan
-- **Sync Indicator:** Badge visual mostrando estado de sincronización
+- **GitHub Webhooks:** Automatically detects commits, PRs, merges
+- **State Diffing:** Compares expected state vs actual repo state
+- **Schema Detection:** Reads database and detects table changes
+- **Auto-Update Artifacts:** Updates SCHEMA.md, ARCHITECTURE.md when there are changes
+- **Conflict Detection:** Alerts when code diverges from plan
+- **Sync Indicator:** Visual badge showing synchronization status
 
-**Estados:**
-- 🟢 **Synced:** Código alineado con artefactos
-- 🟡 **Pending:** Cambios detectados, actualizando artefactos
-- 🔴 **Diverged:** Conflicto detectado, requiere atención
+**States:**
+- 🟢 **Synced:** Code aligned with artifacts
+- 🟡 **Pending:** Changes detected, updating artifacts
+- 🔴 **Diverged:** Conflict detected, requires attention
 
 ---
 
 #### D. Emergency Rollback (Panic Button)
-`Categoría: CORE` `Prioridad: CRÍTICA`
+`Category: CORE` `Priority: CRITICAL`
 
-Sistema de recuperación ante desastres:
+Disaster recovery system:
 
-- **Snapshots Automáticos:** Guarda estado antes de cada sprint/fase
-- **One-Click Restore:** Botón "Restore Stable" revierte a último estado seguro
-- **Git Integration:** Ejecuta `git revert` al commit seguro
-- **Database Rollback:** Genera prompt de emergencia para revertir migraciones
-- **Artifact Restore:** Recupera versiones anteriores de todos los artefactos
-- **Post-Rollback Guidance:** Nexus explica qué salió mal y cómo evitarlo
+- **Automatic Snapshots:** Saves state before each sprint/phase
+- **One-Click Restore:** "Restore Stable" button reverts to last safe state
+- **Git Integration:** Executes `git revert` to safe commit
+- **Database Rollback:** Generates emergency prompt to revert migrations
+- **Artifact Restore:** Recovers previous versions of all artifacts
+- **Post-Rollback Guidance:** Nexus explains what went wrong and how to avoid it
 
-**Flujo de Rollback:**
-1. Usuario presiona "Restore Stable"
-2. Nexus muestra preview de cambios a revertir
-3. Confirmación del usuario
-4. Ejecución de rollback en GitHub
-5. Generación de prompt para rollback de DB
-6. Actualización de artefactos
-7. Resumen de acciones tomadas
+**Rollback Flow:**
+1. User presses "Restore Stable"
+2. Nexus shows preview of changes to revert
+3. User confirmation
+4. Rollback execution in GitHub
+5. Prompt generation for DB rollback
+6. Artifact updates
+7. Summary of actions taken
 
 ---
 
 #### E. Reverse Sync (Import Existing Project)
-`Categoría: CORE` `Prioridad: ALTA`
+`Category: CORE` `Priority: HIGH`
 
-Onboarding para proyectos existentes ("Brownfield"):
+Onboarding for existing projects ("Brownfield"):
 
-- **Repo Import:** Conecta repositorio GitHub existente
-- **AST Parsing:** Analiza estructura del código
-- **LLM Analysis:** Interpreta lógica de negocio
+- **Repo Import:** Connects existing GitHub repository
+- **AST Parsing:** Analyzes code structure
+- **LLM Analysis:** Interprets business logic
 - **Auto-Generate Artifacts:**
-  - Detecta tablas SQL → Crea SCHEMA.md
-  - Detecta rutas de API → Crea ARCHITECTURE.md
-  - Detecta lógica de negocio → Sugiere PRD.md
-- **Gap Analysis:** Identifica documentación faltante
-- **Constitution Inference:** Sugiere reglas basadas en patrones del código
+  - Detects SQL tables → Creates SCHEMA.md
+  - Detects API routes → Creates ARCHITECTURE.md
+  - Detects business logic → Suggests PRD.md
+- **Gap Analysis:** Identifies missing documentation
+- **Constitution Inference:** Suggests rules based on code patterns
 
-**Valor:** Captura usuarios que ya empezaron proyectos sin Nexus.
+**Value:** Captures users who already started projects without Nexus.
 
 ---
 
 #### F. Quality Gates (Audit Engine)
-`Categoría: CORE` `Prioridad: ALTA`
+`Category: CORE` `Priority: HIGH`
 
-Validación automatizada del código generado:
+Automated validation of generated code:
 
 - **CodeRabbit Integration:** 
-  - Revisión automática de cada PR
-  - Detección de vulnerabilidades de seguridad
-  - Sugerencias de mejores prácticas
-  - Comentarios inline en GitHub
+  - Automatic review of each PR
+  - Security vulnerability detection
+  - Best practice suggestions
+  - Inline comments in GitHub
   
 - **TestSprite Integration:**
-  - Generación automática de tests unitarios
-  - Ejecución de test suite
-  - Reporte de cobertura
-  - Sugerencias de casos edge
+  - Automatic unit test generation
+  - Test suite execution
+  - Coverage report
+  - Edge case suggestions
 
 - **Nexus Analysis:**
-  - Validación contra CONSTITUTION.md
-  - Verificación de adherencia a ARCHITECTURE.md
-  - Alerta si código viola reglas del proyecto
+  - Validation against CONSTITUTION.md
+  - Verification of adherence to ARCHITECTURE.md
+  - Alert if code violates project rules
 
-**Flujo:**
-1. PR creado en GitHub
-2. Webhook notifica a Nexus
-3. Nexus invoca CodeRabbit + TestSprite
-4. Resultados consolidados en dashboard
-5. Alerta al usuario si hay issues críticos
-6. Prompt de corrección si es necesario
+**Flow:**
+1. PR created in GitHub
+2. Webhook notifies Nexus
+3. Nexus invokes CodeRabbit + TestSprite
+4. Results consolidated in dashboard
+5. Alert user if there are critical issues
+6. Correction prompt if necessary
 
 ---
 
 #### G. Time Travel (Version History)
-`Categoría: CORE` `Prioridad: ALTA`
+`Category: CORE` `Priority: HIGH`
 
-Navegación temporal por la historia del proyecto:
+Temporal navigation through project history:
 
-- **Artifact Versioning:** Cada artefacto tiene historial completo
-- **Side-by-Side Diff:** Comparar versiones visualmente
-- **Restore Version:** Revertir artefacto a versión anterior
-- **Author Tracking:** Quién hizo cada cambio (Usuario o Nexus AI)
-- **Timestamp:** Cuándo ocurrió cada cambio
-- **Reason Logging:** Por qué se hizo el cambio (link a chat)
+- **Artifact Versioning:** Each artifact has complete history
+- **Side-by-Side Diff:** Compare versions visually
+- **Restore Version:** Revert artifact to previous version
+- **Author Tracking:** Who made each change (User or Nexus AI)
+- **Timestamp:** When each change occurred
+- **Reason Logging:** Why the change was made (link to chat)
 
 **UI:**
-- Panel lateral "History" en cada artefacto
-- Timeline visual con puntos de cambio
-- Botón "Restore" en cada versión
+- Side "History" panel in each artifact
+- Visual timeline with change points
+- "Restore" button on each version
 
 ---
 
-### 7.2 Features de Inteligencia
+### 7.2 Intelligence Features
 
 #### H. Hallucination Detector
-`Categoría: INTELIGENCIA` `Prioridad: CRÍTICA`
+`Category: INTELLIGENCE` `Priority: CRITICAL`
 
-Validación en tiempo real contra alucinaciones de IA:
+Real-time validation against AI hallucinations:
 
-- **API Validation:** Verifica que endpoints y métodos referenciados existan en documentación oficial
-- **Dependency Check:** Confirma que paquetes npm/pip existan y versiones sean compatibles
-- **Method Verification:** Valida que métodos llamados existan en las librerías importadas
-- **Inline Alerts:** Badge rojo en chat cuando se detecta alucinación
-- **Correction Suggestions:** Propone alternativa correcta
-- **Confidence Score:** Nivel de certeza de que algo es alucinación
+- **API Validation:** Verifies that referenced endpoints and methods exist in official documentation
+- **Dependency Check:** Confirms npm/pip packages exist and versions are compatible
+- **Method Verification:** Validates that called methods exist in imported libraries
+- **Inline Alerts:** Red badge in chat when hallucination detected
+- **Correction Suggestions:** Proposes correct alternative
+- **Confidence Score:** Certainty level that something is a hallucination
 
-**Implementación:**
-- Integración con registros oficiales (npm, PyPI)
-- Scraping de documentación de APIs populares
-- Validación AST del código generado
-- Base de datos de métodos/funciones por librería
+**Implementation:**
+- Integration with official registries (npm, PyPI)
+- Scraping of popular API documentation
+- AST validation of generated code
+- Database of methods/functions by library
 
 ---
 
 #### I. Builder Knowledge Base
-`Categoría: INTELIGENCIA` `Prioridad: ALTA`
+`Category: INTELLIGENCE` `Priority: HIGH`
 
-Repositorio indexado de capacidades de cada plataforma:
+Indexed repository of each platform's capabilities:
 
 - **Platforms Indexed:** Leap, Cursor, Devin, Lovable, Bolt, Replit
 - **Data per Platform:**
-  - Stack soportado (frameworks, DBs, auth providers)
-  - Limitaciones conocidas
-  - Mejores prácticas de prompting
-  - Integraciones nativas
-  - Pricing/límites de uso
-- **Auto-Update:** Scraping periódico de documentación oficial
-- **Architecture Auto-Gen:** ARCHITECTURE.md generado según builder elegido
-- **Prompt Optimization:** Prompts adaptados al estilo del builder
+  - Supported stack (frameworks, DBs, auth providers)
+  - Known limitations
+  - Prompting best practices
+  - Native integrations
+  - Pricing/usage limits
+- **Auto-Update:** Periodic scraping of official documentation
+- **Architecture Auto-Gen:** ARCHITECTURE.md generated according to chosen builder
+- **Prompt Optimization:** Prompts adapted to builder's style
 
-**Ejemplo:** Usuario elige Leap.new → Nexus sabe que usa Clerk + Neon + Stripe nativamente → Solo pregunta decisiones que Leap permite customizar.
+**Example:** User chooses Leap.new → Nexus knows it uses Clerk + Neon + Stripe natively → Only asks decisions Leap allows to customize.
 
 ---
 
 #### I-b. Technology Cost Index
-`Categoría: INTELIGENCIA` `Prioridad: ALTA`
+`Category: INTELLIGENCE` `Priority: HIGH`
 
-Base de datos estructurada con información de costos y características de cada tecnología:
+Structured database with cost information and characteristics of each technology:
 
-- **Datos Indexados por Tecnología:**
+- **Data Indexed per Technology:**
 
-| Campo | Ejemplo (Clerk) | Uso |
+| Field | Example (Clerk) | Use |
 |-------|-----------------|-----|
-| `name` | Clerk | Identificador |
-| `category` | auth | Tipo de servicio |
+| `name` | Clerk | Identifier |
+| `category` | auth | Service type |
 | `pricing_model` | freemium | free, freemium, paid, usage-based |
-| `free_tier_limits` | 10,000 MAU | Límites del tier gratuito |
-| `paid_tier_start_usd` | 25 | Precio inicial tier pagado |
-| `usage_based_pricing` | $0.02/MAU after 10k | Costo por uso |
-| `supported_stacks` | [Next.js, React, Node] | Frameworks compatibles |
-| `native_integrations` | [Neon, Vercel, Stripe] | Integraciones nativas |
-| `setup_complexity` | 1 | 1-5 escala de dificultad |
-| `documentation_url` | docs.clerk.com | Link a docs oficiales |
-| `last_updated` | 2024-11-01 | Fecha última actualización |
+| `free_tier_limits` | 10,000 MAU | Free tier limits |
+| `paid_tier_start_usd` | 25 | Paid tier starting price |
+| `usage_based_pricing` | $0.02/MAU after 10k | Usage cost |
+| `supported_stacks` | [Next.js, React, Node] | Compatible frameworks |
+| `native_integrations` | [Neon, Vercel, Stripe] | Native integrations |
+| `setup_complexity` | 1 | 1-5 difficulty scale |
+| `documentation_url` | docs.clerk.com | Link to official docs |
+| `last_updated` | 2024-11-01 | Last update date |
 
-- **Beneficios:**
-  - Cálculos de costo precisos en Implementation Planner
-  - Respuestas uniformes sobre tecnologías
-  - Actualizaciones centralizadas
-  - Recomendaciones basadas en presupuesto del usuario
+- **Benefits:**
+  - Precise cost calculations in Implementation Planner
+  - Uniform responses about technologies
+  - Centralized updates
+  - Recommendations based on user budget
 
-- **Actualización:**
-  - Scraping automático de páginas de pricing
-  - Validación manual periódica
-  - Alertas cuando hay cambios de precios significativos
+- **Updates:**
+  - Automatic scraping of pricing pages
+  - Periodic manual validation
+  - Alerts when there are significant price changes
 
 ---
 
 #### J. Context Refresh System
-`Categoría: INTELIGENCIA` `Prioridad: CRÍTICA`
+`Category: INTELLIGENCE` `Priority: CRITICAL`
 
-Gestión proactiva de la ventana de contexto:
+Proactive context window management:
 
-- **Token Monitoring:** Tracking continuo del uso de contexto
+- **Token Monitoring:** Continuous tracking of context usage
 - **Visual Alerts:**
-  - 70%: Indicador amarillo
-  - 85%: Notificación "Prepárate para refresh"
-  - 90%: Ejecución automática de protocolo
-- **RAG Query:** Recupera información esencial de base vectorial
-- **Roadmap Query:** Consulta tareas y progreso de la DB
-- **Context Bundle:** Paquete comprimido con todo lo necesario
-- **Seamless Transition:** Usuario continúa sin notar el cambio
-- **Manual Trigger:** Botón "Force Refresh" disponible
+  - 70%: Yellow indicator
+  - 85%: "Prepare for refresh" notification
+  - 90%: Automatic protocol execution
+- **RAG Query:** Retrieves essential information from vector database
+- **Roadmap Query:** Queries tasks and progress from DB
+- **Context Bundle:** Compressed package with everything needed
+- **Seamless Transition:** User continues without noticing the change
+- **Manual Trigger:** "Force Refresh" button available
 
-**Garantía:** Continuidad en proyectos de meses de duración sin pérdida de contexto.
+**Guarantee:** Continuity in projects lasting months without context loss.
 
 ---
 
 #### K. Predictive Issues
-`Categoría: INTELIGENCIA` `Prioridad: DIFERENCIADOR`
+`Category: INTELLIGENCE` `Priority: DIFFERENTIATOR`
 
-IA que anticipa problemas antes de que ocurran:
+AI that anticipates problems before they occur:
 
 - **Schema Analysis:**
-  - "Tu tabla users no tiene índice en email — será lento a escala"
-  - "La relación N:N necesita tabla intermedia"
+  - "Your users table doesn't have an index on email — it will be slow at scale"
+  - "The N:N relationship needs an intermediate table"
 - **Security Scan:**
-  - "Esta API no tiene rate limiting — vulnerable a DDoS"
-  - "Endpoint expone datos sensibles sin auth"
+  - "This API doesn't have rate limiting — vulnerable to DDoS"
+  - "Endpoint exposes sensitive data without auth"
 - **Architecture Review:**
-  - "Componente X tiene 15 props — considera dividirlo"
-  - "Esta función tiene complejidad ciclomática alta"
+  - "Component X has 15 props — consider splitting it"
+  - "This function has high cyclomatic complexity"
 - **Performance Prediction:**
-  - "Query N+1 detectado en este patrón"
-  - "Bundle size excederá límite recomendado"
-- **Pre-Generated Fix:** Cada issue incluye prompt para solucionarlo
-- **Risk Scoring:** Severidad de cada issue (Critical, High, Medium, Low)
+  - "N+1 query detected in this pattern"
+  - "Bundle size will exceed recommended limit"
+- **Pre-Generated Fix:** Each issue includes prompt to fix it
+- **Risk Scoring:** Severity of each issue (Critical, High, Medium, Low)
 
 ---
 
 #### L. Error Pattern Recognition
-`Categoría: INTELIGENCIA` `Prioridad: DIFERENCIADOR`
+`Category: INTELLIGENCE` `Priority: DIFFERENTIATOR`
 
-Aprendizaje de errores para prevención futura:
+Learning from errors for future prevention:
 
-- **Error Log Analysis:** Escanea ERROR_LOG.md para detectar patrones
-- **Recurrence Detection:** "Este tipo de error ha ocurrido 3 veces"
-- **Root Cause Identification:** Identifica causa común
-- **Permanent Fix Suggestion:** Propone solución definitiva, no parche
-- **Cross-Project Learning:** Errores comunes por stack (compartido anónimamente)
-- **Preventive Alerts:** Advierte antes de que el error ocurra
+- **Error Log Analysis:** Scans ERROR_LOG.md to detect patterns
+- **Recurrence Detection:** "This type of error has occurred 3 times"
+- **Root Cause Identification:** Identifies common cause
+- **Permanent Fix Suggestion:** Proposes definitive solution, not patch
+- **Cross-Project Learning:** Common errors by stack (shared anonymously)
+- **Preventive Alerts:** Warns before error occurs
 
 ---
 
-### 7.3 Features de Productividad
+### 7.3 Productivity Features
 
 #### M. Code Health Score
-`Categoría: PRODUCTIVIDAD` `Prioridad: ALTA`
+`Category: PRODUCTIVITY` `Priority: HIGH`
 
-Dashboard de métricas de calidad del código:
+Code quality metrics dashboard:
 
-- **Global Score:** 0-100 con breakdown por categoría
-- **Métricas:**
-  - Complejidad ciclomática
-  - Cobertura de tests
-  - Vulnerabilidades conocidas (CVEs)
-  - Deuda técnica estimada
-  - Duplicación de código
-- **Trend Tracking:** Comparativa vs. ayer/semana pasada
-- **Threshold Alerts:** Notificación cuando score baja de umbral
-- **Gamification:** Badges por mantener score alto durante sprints
-- **Per-Component Breakdown:** Score por módulo/feature
+- **Global Score:** 0-100 with breakdown by category
+- **Metrics:**
+  - Cyclomatic complexity
+  - Test coverage
+  - Known vulnerabilities (CVEs)
+  - Estimated technical debt
+  - Code duplication
+- **Trend Tracking:** Comparison vs. yesterday/last week
+- **Threshold Alerts:** Notification when score drops below threshold
+- **Gamification:** Badges for maintaining high score during sprints
+- **Per-Component Breakdown:** Score by module/feature
 
-**Colores:**
-- 🟢 80-100: Excelente
-- 🟡 50-79: Aceptable
-- 🔴 0-49: Requiere atención
+**Colors:**
+- 🟢 80-100: Excellent
+- 🟡 50-79: Acceptable
+- 🔴 0-49: Needs attention
 
 ---
 
-#### N. Learning Mode (Modo Pedagógico)
-`Categoría: PRODUCTIVIDAD` `Prioridad: ALTA`
+#### N. Learning Mode (Pedagogical Mode)
+`Category: PRODUCTIVITY` `Priority: HIGH`
 
-Toggle que transforma Nexus en tutor:
+Toggle that transforms Nexus into a tutor:
 
-- **Inline Explanations:** Por qué Nexus sugiere cada prompt
-- **Architecture Tooltips:** Conceptos técnicos explicados en hover
-- **"Why This Decision?" Button:** En cada artefacto y sugerencia
-- **Contextual Glossary:** Términos técnicos explicados según nivel del usuario
-- **Learning Progress:** Badges y niveles por conceptos dominados
-- **Recommended Reading:** Links a documentación cuando el usuario pregunta algo avanzado
-- **Difficulty Adaptation:** Ajusta complejidad de explicaciones según historial
+- **Inline Explanations:** Why Nexus suggests each prompt
+- **Architecture Tooltips:** Technical concepts explained on hover
+- **"Why This Decision?" Button:** In each artifact and suggestion
+- **Contextual Glossary:** Technical terms explained according to user level
+- **Learning Progress:** Badges and levels for mastered concepts
+- **Recommended Reading:** Links to documentation when user asks something advanced
+- **Difficulty Adaptation:** Adjusts explanation complexity based on history
 
 ---
 
 #### O. Project Templates Gallery
-`Categoría: PRODUCTIVIDAD` `Prioridad: ALTA`
+`Category: PRODUCTIVITY` `Priority: HIGH`
 
-Biblioteca de proyectos pre-configurados:
+Pre-configured project library:
 
-| Template | Incluye |
-|----------|---------|
+| Template | Includes |
+|----------|----------|
 | **SaaS Starter** | Auth, Billing (Stripe), Dashboard, Settings, User Management |
-| **E-commerce** | Carrito, Checkout, Inventario, Admin Panel, Emails transaccionales |
-| **Marketplace** | Multi-vendor, Comisiones, Reviews, Disputes, Payouts |
+| **E-commerce** | Cart, Checkout, Inventory, Admin Panel, Transactional Emails |
+| **Marketplace** | Multi-vendor, Commissions, Reviews, Disputes, Payouts |
 | **AI Wrapper** | API Integration, Usage Tracking, Rate Limiting, API Keys |
-| **Internal Tool** | CRUD, Roles/Permisos, Audit Log, Export |
+| **Internal Tool** | CRUD, Roles/Permissions, Audit Log, Export |
 | **Landing Page** | Hero, Features, Pricing, CTA, Analytics |
 
-**Cada template incluye:**
-- PRD.md pre-llenado
-- ARCHITECTURE.md configurado
-- SCHEMA.md inicial
-- Primeros 5-10 prompts listos
-- CONSTITUTION.md con mejores prácticas
+**Each template includes:**
+- Pre-filled PRD.md
+- Configured ARCHITECTURE.md
+- Initial SCHEMA.md
+- First 5-10 prompts ready
+- CONSTITUTION.md with best practices
 
 ---
 
 #### P. Token Cost Estimator
-`Categoría: PRODUCTIVIDAD` `Prioridad: MEDIA`
+`Category: PRODUCTIVITY` `Priority: MEDIUM`
 
-Predicción y control de costos de IA:
+AI cost prediction and control:
 
-- **Pre-Execution Estimate:** "Este sprint consumirá ~$X.XX en tokens"
-- **Historical Dashboard:** Consumo por día/semana/mes
-- **Per-Task Breakdown:** Costo de cada operación
-- **Budget Alerts:** Notificación al acercarse al límite mensual
-- **Optimization Tips:** "Usa Claude Haiku para esta tarea y ahorra 70%"
-- **Project Projection:** Estimación de costo total para completar proyecto
-- **Model Recommendations:** Sugerencia de modelo óptimo según tarea
+- **Pre-Execution Estimate:** "This sprint will consume ~$X.XX in tokens"
+- **Historical Dashboard:** Consumption by day/week/month
+- **Per-Task Breakdown:** Cost of each operation
+- **Budget Alerts:** Notification when approaching monthly limit
+- **Optimization Tips:** "Use Claude Haiku for this task and save 70%"
+- **Project Projection:** Total cost estimate to complete project
+- **Model Recommendations:** Optimal model suggestion per task
 
 ---
 
 #### Q. Context Export / Offline Mode
-`Categoría: PRODUCTIVIDAD` `Prioridad: MEDIA`
+`Category: PRODUCTIVITY` `Priority: MEDIUM`
 
-Portabilidad completa del proyecto:
+Complete project portability:
 
 - **Full Export ZIP:**
-  - Todos los artefactos (.md files)
-  - Historial de versiones
-  - Decision Journal completo
+  - All artifacts (.md files)
+  - Version history
+  - Complete Decision Journal
   - Error Log
-- **Prompt Bundle:** Todos los prompts pendientes listos para copiar
-- **State Snapshot:** Estado del proyecto exportable
-- **Import Function:** Cargar contexto en nuevo ambiente
-- **Offline Viewer:** HTML estático para revisar sin conexión
-- **Migration Support:** Facilita mover proyecto a otro builder
+- **Prompt Bundle:** All pending prompts ready to copy
+- **State Snapshot:** Exportable project state
+- **Import Function:** Load context in new environment
+- **Offline Viewer:** Static HTML to review without connection
+- **Migration Support:** Facilitates moving project to another builder
 
 ---
 
-### 7.4 Features de Colaboración
+### 7.4 Collaboration Features
 
 #### R. Collaboration Hub
-`Categoría: COLABORACIÓN` `Prioridad: MEDIA`
+`Category: COLLABORATION` `Priority: MEDIUM`
 
-Capacidades multi-usuario:
+Multi-user capabilities:
 
 - **Roles:**
-  - Owner: Control total
-  - Editor: Puede modificar artefactos y ejecutar prompts
-  - Viewer: Solo lectura
-- **Activity Feed:** Timeline de quién hizo qué y cuándo
-- **Comments:** Discusión asíncrona en artefactos con @menciones
-- **Presence Indicators:** Ver quién está activo en el proyecto
-- **Handoff Mode:** Transferencia de contexto a desarrollador senior
-  - Genera resumen ejecutivo automático
-  - Highlights de decisiones críticas
-  - Lista de pendientes priorizados
-- **Notifications:** Email/Slack cuando hay cambios importantes
+  - Owner: Full control
+  - Editor: Can modify artifacts and execute prompts
+  - Viewer: Read-only
+- **Activity Feed:** Timeline of who did what and when
+- **Comments:** Asynchronous discussion in artifacts with @mentions
+- **Presence Indicators:** See who is active in the project
+- **Handoff Mode:** Context transfer to senior developer
+  - Generates automatic executive summary
+  - Critical decision highlights
+  - Prioritized pending list
+- **Notifications:** Email/Slack when there are important changes
 
 ---
 
 #### S. Linear Deep Integration
-`Categoría: COLABORACIÓN` `Prioridad: ALTA`
+`Category: COLLABORATION` `Priority: HIGH`
 
-Sincronización bidireccional completa:
+Complete bidirectional synchronization:
 
-- **Auto-Create Tickets:** Nexus crea tickets desde Roadmap automáticamente
-- **Bidirectional Sync:** Estados sincronizados Linear  Nexus en tiempo real
-- **Prompt Attachment:** Cada ticket tiene prompt asociado
-- **Sprint View:** Vista simplificada en Nexus (no reemplaza Linear)
-- **Nexus Comments:** Nexus comenta en tickets con contexto relevante
-- **Label Mapping:** Categorías de Nexus → Labels de Linear
-- **Priority Sync:** Prioridades reflejadas en ambos sistemas
+- **Auto-Create Tickets:** Nexus creates tickets from Roadmap automatically
+- **Bidirectional Sync:** Linear ↔ Nexus states synchronized in real-time
+- **Prompt Attachment:** Each ticket has associated prompt
+- **Sprint View:** Simplified view in Nexus (doesn't replace Linear)
+- **Nexus Comments:** Nexus comments on tickets with relevant context
+- **Label Mapping:** Nexus categories → Linear Labels
+- **Priority Sync:** Priorities reflected in both systems
 
 ---
 
-### 7.5 Features Diferenciadoras
+### 7.5 Differentiating Features
 
 #### T. Decision Journal Module
-`Categoría: DIFERENCIADOR` `Prioridad: ALTA`
+`Category: DIFFERENTIATOR` `Priority: HIGH`
 
-Módulo de interfaz (no artefacto) para registro y consulta de decisiones:
+Interface module (not artifact) for decision logging and querying:
 
-- **Storage:** Base de datos PostgreSQL, tabla `decisions`
-- **Auto-Capture:** Cada decisión arquitectónica guardada con timestamp
-- **Bidirectional Links:** Cada entrada tiene link al chat exacto donde se discutió
+- **Storage:** PostgreSQL database, `decisions` table
+- **Auto-Capture:** Each architectural decision saved with timestamp
+- **Bidirectional Links:** Each entry has link to exact chat where it was discussed
 - **Categories:**
-  - Técnica (stack, patterns)
-  - Negocio (features, priorización)
-  - UX (flujos, diseño)
-  - Seguridad (auth, permisos)
+  - Technical (stack, patterns)
+  - Business (features, prioritization)
+  - UX (flows, design)
+  - Security (auth, permissions)
 - **UI Features:**
-  - Filtros por categoría, fecha, proyecto
-  - Búsqueda semántica: "¿Por qué usamos Stripe en lugar de Paddle?"
-  - Timeline visual de evolución del proyecto
-  - Ordenamiento por fecha, importancia
-- **Context Refresh Integration:** Nexus consulta esta tabla durante refresh para recuperar decisiones críticas
-- **Reasoning Preservation:** El "por qué" nunca se pierde
+  - Filters by category, date, project
+  - Semantic search: "Why did we use Stripe instead of Paddle?"
+  - Visual timeline of project evolution
+  - Sorting by date, importance
+- **Context Refresh Integration:** Nexus queries this table during refresh to retrieve critical decisions
+- **Reasoning Preservation:** The "why" is never lost
 
 **Database Schema:**
 ```sql
 decisions (
     id UUID PRIMARY KEY,
     project_id UUID,
-    conversation_id UUID,          -- Link al chat de origen
+    conversation_id UUID,          -- Link to origin chat
     category TEXT,                 -- 'technical', 'business', 'ux', 'security'
     title TEXT,
     description TEXT,
@@ -739,118 +738,118 @@ decisions (
 )
 ```
 
-**Nota:** A diferencia de los artefactos markdown, el Decision Journal NO es exportable como archivo. Es un módulo operacional de Nexus para consulta interna y Context Refresh.
+**Note:** Unlike markdown artifacts, the Decision Journal is NOT exportable as a file. It's an operational Nexus module for internal querying and Context Refresh.
 
 ---
 
 #### T-b. Error Log Module
-`Categoría: DIFERENCIADOR` `Prioridad: ALTA`
+`Category: DIFFERENTIATOR` `Priority: HIGH`
 
-Módulo de interfaz (no artefacto) para registro y análisis de errores:
+Interface module (not artifact) for error logging and analysis:
 
-- **Storage:** Base de datos PostgreSQL, tabla `error_logs`
-- **Auto-Capture:** Errores registrados automáticamente con diagnóstico
-- **Conversation Link:** Cada error vinculado al chat donde se discutió
+- **Storage:** PostgreSQL database, `error_logs` table
+- **Auto-Capture:** Errors automatically logged with diagnosis
+- **Conversation Link:** Each error linked to chat where it was discussed
 - **Error Types:**
-  - Runtime (errores en producción)
-  - Build (errores de compilación)
-  - Logic (bugs de lógica de negocio)
-  - Security (vulnerabilidades detectadas)
+  - Runtime (production errors)
+  - Build (compilation errors)
+  - Logic (business logic bugs)
+  - Security (detected vulnerabilities)
 - **Severity Levels:** Low, Medium, High, Critical
 - **UI Features:**
-  - Filtros por tipo, severidad, estado (resuelto/pendiente)
-  - Búsqueda por mensaje de error
-  - Detección de patrones recurrentes
-  - Métricas y estadísticas
-- **Context Refresh Integration:** Nexus consulta los últimos N errores y patrones durante refresh
-- **Pattern Recognition:** Alimenta el feature de Error Pattern Recognition (L)
+  - Filters by type, severity, status (resolved/pending)
+  - Search by error message
+  - Recurring pattern detection
+  - Metrics and statistics
+- **Context Refresh Integration:** Nexus queries last N errors and patterns during refresh
+- **Pattern Recognition:** Feeds Error Pattern Recognition feature (L)
 
 **Database Schema:**
 ```sql
 error_logs (
     id UUID PRIMARY KEY,
     project_id UUID,
-    conversation_id UUID,          -- Link al chat de origen
+    conversation_id UUID,          -- Link to origin chat
     error_type TEXT,               -- 'runtime', 'build', 'logic', 'security'
     severity TEXT,                 -- 'low', 'medium', 'high', 'critical'
     message TEXT,
     stack_trace TEXT,
-    diagnosis TEXT,                -- Análisis de Nexus
-    solution TEXT,                 -- Solución aplicada
+    diagnosis TEXT,                -- Nexus analysis
+    solution TEXT,                 -- Applied solution
     resolved BOOLEAN DEFAULT false,
     resolved_at TIMESTAMP,
     created_at TIMESTAMP
 )
 ```
 
-**Nota:** A diferencia de los artefactos markdown, el Error Log NO es exportable como archivo. Es un módulo operacional para detección de patrones y mejora continua.
+**Note:** Unlike markdown artifacts, the Error Log is NOT exportable as a file. It's an operational module for pattern detection and continuous improvement.
 
 ---
 
 #### U. Roadmap Module
-`Categoría: DIFERENCIADOR` `Prioridad: CRÍTICA`
+`Category: DIFFERENTIATOR` `Priority: CRITICAL`
 
-Módulo de gestión de tareas y progreso (UI, no artefacto):
+Task and progress management module (UI, not artifact):
 
-- **Visual Timeline:** Fases y sprints en línea de tiempo
-- **Task Breakdown:** Tareas atómicas con dependencias
-- **Prompt Library:** Cada tarea tiene prompt optimizado asociado
-- **Builder Assignment:** Cada tarea muestra quién la ejecutará:
-  - **Nexus:** Botón "Execute" que carga el prompt en el input del Orchestrator
-  - **Leap/Cursor/Devin:** Botón "Copy Prompt" para pegar en la herramienta externa
-- **Status Tracking:** Pendiente, En Progreso, Bloqueado, Completado
-- **Progress Metrics:** % de completitud por sprint/fase
-- **Dependency Graph:** Visualización de qué depende de qué
-- **Drag & Drop:** Reordenar prioridades
-- **Linear Sync:** Bidireccional con Linear
-- **Data for Context Refresh:** Nexus consulta este módulo durante refresh
-- **Strategy Link:** Cada tarea vinculada a la estrategia de implementación seleccionada
+- **Visual Timeline:** Phases and sprints in timeline
+- **Task Breakdown:** Atomic tasks with dependencies
+- **Prompt Library:** Each task has associated optimized prompt
+- **Builder Assignment:** Each task shows who will execute it:
+  - **Nexus:** "Execute" button that loads prompt in Orchestrator input
+  - **Leap/Cursor/Devin:** "Copy Prompt" button to paste in external tool
+- **Status Tracking:** Pending, In Progress, Blocked, Completed
+- **Progress Metrics:** % completion by sprint/phase
+- **Dependency Graph:** Visualization of what depends on what
+- **Drag & Drop:** Reorder priorities
+- **Linear Sync:** Bidirectional with Linear
+- **Data for Context Refresh:** Nexus queries this module during refresh
+- **Strategy Link:** Each task linked to selected implementation strategy
 
-**Ejecución de Tareas:**
-| Builder | Acción | Resultado |
-|---------|--------|-----------|
-| **Nexus** | Click "Execute" | Prompt se carga en input del Orchestrator, listo para enviar |
-| **Leap** | Click "Copy Prompt" | Prompt copiado al clipboard + instrucciones de uso |
-| **Cursor** | Click "Copy Prompt" | Prompt formateado para Cursor + contexto necesario |
-| **Devin** | Click "Copy Prompt" | Prompt estructurado para Devin + archivos referenciados |
+**Task Execution:**
+| Builder | Action | Result |
+|---------|--------|--------|
+| **Nexus** | Click "Execute" | Prompt loads in Orchestrator input, ready to send |
+| **Leap** | Click "Copy Prompt" | Prompt copied to clipboard + usage instructions |
+| **Cursor** | Click "Copy Prompt" | Prompt formatted for Cursor + necessary context |
+| **Devin** | Click "Copy Prompt" | Structured prompt for Devin + referenced files |
 
 ---
 
 #### V. Multi-Tenant Management
-`Categoría: DIFERENCIADOR` `Prioridad: MEDIA`
+`Category: DIFFERENTIATOR` `Priority: MEDIUM`
 
-Gestión de organizaciones y proyectos:
+Organization and project management:
 
 - **Hierarchy:** User → Organizations → Projects
-- **Clerk Integration:** Organizaciones mapeadas 1:1 con Clerk
-- **Billing per Org:** Stripe integrado para suscripciones
+- **Clerk Integration:** Organizations mapped 1:1 with Clerk
+- **Billing per Org:** Stripe integrated for subscriptions
 - **Tiers:**
-  - Free: 1 proyecto, límites de tokens
-  - Pro: Proyectos ilimitados, más tokens
+  - Free: 1 project, token limits
+  - Pro: Unlimited projects, more tokens
   - Enterprise: Team features, SSO, audit logs
-- **Project Templates:** Guardar proyectos como templates organizacionales
-- **Shared Knowledge Base:** Artefactos compartidos entre proyectos de la misma org
+- **Project Templates:** Save projects as organizational templates
+- **Shared Knowledge Base:** Artifacts shared between projects in same org
 
 ---
 
 #### W. Project Implementation Planner
-`Categoría: DIFERENCIADOR` `Prioridad: CRÍTICA`
+`Category: DIFFERENTIATOR` `Priority: CRITICAL`
 
-Dashboard interactivo durante el onboarding para definir CÓMO se implementará cada feature:
+Interactive dashboard during onboarding to define HOW each feature will be implemented:
 
-- **Strategy Catalog:** Base de datos de estrategias por tipo de feature
-- **Interactive Selection:** Usuario elige nivel de complejidad por feature
-- **Cost Calculator:** Suma automática de costos mensuales según selección
-- **Comparison View:** Tabla comparativa de opciones por feature
-- **Recommendation Engine:** Nexus sugiere estrategia óptima según builder elegido
-- **Post-Onboarding Edit:** Estrategias modificables después del setup inicial
-- **Architecture Layer Generator:** Auto-genera vista arquitectónica basada en decisiones
+- **Strategy Catalog:** Database of strategies by feature type
+- **Interactive Selection:** User chooses complexity level per feature
+- **Cost Calculator:** Automatic sum of monthly costs based on selection
+- **Comparison View:** Comparative table of options per feature
+- **Recommendation Engine:** Nexus suggests optimal strategy based on chosen builder
+- **Post-Onboarding Edit:** Strategies editable after initial setup
+- **Architecture Layer Generator:** Auto-generates architectural view based on decisions
 
-**UI del Strategy Selector:**
+**Strategy Selector UI:**
 
-| Feature | Estrategia | Costo/mes | Complejidad | Selección |
-|---------|------------|-----------|-------------|-----------|
-| **Auth** | Clerk Integration (Recomendado) | $5 | ★☆☆ | ○ |
+| Feature | Strategy | Cost/month | Complexity | Selection |
+|---------|----------|------------|------------|-----------|
+| **Auth** | Clerk Integration (Recommended) | $5 | ★☆☆ | ○ |
 | **Auth** | Custom NextAuth | $10 | ★★☆ | ○ |
 | **Auth** | Agent-Based Auth | $50 | ★★★ | ○ |
 
@@ -858,29 +857,29 @@ Dashboard interactivo durante el onboarding para definir CÓMO se implementará 
 
 ### Architecture Layer Dashboard
 
-Una vez seleccionadas las estrategias, Nexus genera automáticamente un **dashboard visual** de la arquitectura del proyecto:
+Once strategies are selected, Nexus automatically generates a **visual dashboard** of the project architecture:
 
-**Secciones del Dashboard:**
+**Dashboard Sections:**
 
-| Sección | Información Generada |
-|---------|---------------------|
-| **Tipo de Arquitectura** | Monolítica / Microservicios / Serverless / Híbrida |
+| Section | Generated Information |
+|---------|----------------------|
+| **Architecture Type** | Monolithic / Microservices / Serverless / Hybrid |
 | **Frontend Stack** | Framework, UI Library, State Management |
 | **Backend Stack** | Runtime, Framework, API Style (REST/GraphQL) |
-| **Instancias** | Cuántos servicios/servidores se necesitan |
-| **Workers** | Si se requieren background jobs, colas, cron |
-| **Interfaces de Usuario** | Storefront, Admin Panel, User Dashboard (separados o unificados) |
-| **Base de Datos** | Tipo, instancias, réplicas |
-| **Escalabilidad** | Horizontal/Vertical, auto-scaling, CDN |
+| **Instances** | How many services/servers needed |
+| **Workers** | If background jobs, queues, cron needed |
+| **User Interfaces** | Storefront, Admin Panel, User Dashboard (separate or unified) |
+| **Database** | Type, instances, replicas |
+| **Scalability** | Horizontal/Vertical, auto-scaling, CDN |
 
-**Ejemplo de Architecture Layer generado:**
+**Generated Architecture Layer Example:**
 
 ```
 +---------------------------------------------------------------+
 |  ARCHITECTURE LAYER - Delivery App v2                         |
 +---------------------------------------------------------------+
 |                                                               |
-|  TIPO: Monolítica con separación de concerns                  |
+|  TYPE: Monolithic with separation of concerns                 |
 |                                                               |
 |  +---------------------------------------------------+        |
 |  | FRONTEND                                          |        |
@@ -893,61 +892,61 @@ Una vez seleccionadas las estrategias, Nexus genera automáticamente un **dashbo
 |  | BACKEND                                           |        |
 |  | - Runtime: Node.js (Vercel Edge)                  |        |
 |  | - API: Next.js API Routes                         |        |
-|  | - Server: 1 instancia (Vercel)                    |        |
-|  | - Workers: Vercel Cron (emails, notificaciones)   |        |
+|  | - Server: 1 instance (Vercel)                     |        |
+|  | - Workers: Vercel Cron (emails, notifications)    |        |
 |  +---------------------------------------------------+        |
 |                                                               |
 |  +---------------------------------------------------+        |
 |  | INTERFACES                                        |        |
-|  | - Storefront: /app (publico)                      |        |
-|  | - Admin Panel: /admin (separado, protegido)       |        |
-|  | - User Dashboard: /dashboard (autenticado)        |        |
+|  | - Storefront: /app (public)                       |        |
+|  | - Admin Panel: /admin (separate, protected)       |        |
+|  | - User Dashboard: /dashboard (authenticated)      |        |
 |  +---------------------------------------------------+        |
 |                                                               |
 |  +---------------------------------------------------+        |
 |  | DATABASE                                          |        |
-|  | - Tipo: PostgreSQL (Neon)                         |        |
-|  | - Instancias: 1 (con connection pooling)          |        |
+|  | - Type: PostgreSQL (Neon)                         |        |
+|  | - Instances: 1 (with connection pooling)          |        |
 |  | - Replicas: No (MVP)                              |        |
 |  +---------------------------------------------------+        |
 |                                                               |
 |  +---------------------------------------------------+        |
-|  | ESCALABILIDAD                                     |        |
-|  | - Modelo: Vertical inicial -> Horizontal en v2    |        |
+|  | SCALABILITY                                       |        |
+|  | - Model: Vertical initial -> Horizontal in v2     |        |
 |  | - CDN: Vercel Edge Network                        |        |
-|  | - Cache: Redis (si se activa real-time)           |        |
-|  | - Auto-scaling: Vercel automatico                 |        |
+|  | - Cache: Redis (if real-time activated)           |        |
+|  | - Auto-scaling: Vercel automatic                  |        |
 |  +---------------------------------------------------+        |
 |                                                               |
-|  COSTO MENSUAL ESTIMADO: $45-85                               |
-|  TECNOLOGIAS: 8                                               |
-|  REQUIERE AGENTES: No                                         |
+|  ESTIMATED MONTHLY COST: $45-85                               |
+|  TECHNOLOGIES: 8                                              |
+|  REQUIRES AGENTS: No                                          |
 |                                                               |
-|  [Editar Arquitectura]  [Generar ARCHITECTURE.md]             |
+|  [Edit Architecture]  [Generate ARCHITECTURE.md]              |
 +---------------------------------------------------------------+
 ```
 
-**Flujo de Generación:**
-1. Usuario selecciona estrategias por feature
-2. Nexus analiza combinación de tecnologías
-3. Infiere tipo de arquitectura óptima
-4. Genera Architecture Layer Dashboard
-5. Usuario puede ajustar manualmente
-6. Al confirmar → Genera ARCHITECTURE.md automáticamente
+**Generation Flow:**
+1. User selects strategies per feature
+2. Nexus analyzes technology combination
+3. Infers optimal architecture type
+4. Generates Architecture Layer Dashboard
+5. User can manually adjust
+6. On confirm → Automatically generates ARCHITECTURE.md
 
 ---
 
-**Project Summary (Auto-calculado):**
-- 💰 Costo mensual estimado: $75-120
-- 🎯 Complejidad promedio: ★★★☆☆
-- 🔧 Tecnologías requeridas: 7
-- âš ï¸ Requiere agentes: Sí/No
-- âš ï¸ Requiere microservicios: Sí/No
+**Project Summary (Auto-calculated):**
+- 💰 Estimated monthly cost: $75-120
+- 🎯 Average complexity: ★★★☆☆
+- 🔧 Required technologies: 7
+- ⚠️ Requires agents: Yes/No
+- ⚠️ Requires microservices: Yes/No
 
 **Database Schema:**
 
 ```sql
--- Estrategias disponibles por tipo de feature
+-- Available strategies by feature type
 implementation_strategies (
     strategy_id TEXT PRIMARY KEY,  -- 'auth-clerk', 'auth-custom-agent'
     feature_type TEXT,             -- 'auth', 'payments', 'realtime'
@@ -958,12 +957,12 @@ implementation_strategies (
     technologies JSONB,            -- ['clerk', 'neon']
     requires_agent BOOLEAN,
     requires_microservice BOOLEAN,
-    implementation_steps JSONB,    -- Pasos para Guided Setup
+    implementation_steps JSONB,    -- Steps for Guided Setup
     pros JSONB,
     cons JSONB
 )
 
--- Decisiones del usuario por proyecto
+-- User decisions per project
 project_implementation_decisions (
     project_id UUID,
     feature_name TEXT,
@@ -972,7 +971,7 @@ project_implementation_decisions (
     implementation_status TEXT     -- 'planned', 'in_progress', 'completed'
 )
 
--- Estimaciones calculadas por proyecto
+-- Calculated estimates per project
 project_cost_estimates (
     project_id UUID,
     total_monthly_cost_usd DECIMAL,
@@ -982,7 +981,7 @@ project_cost_estimates (
     breakdown JSONB
 )
 
--- Architecture Layer generado
+-- Generated Architecture Layer
 project_architecture (
     project_id UUID PRIMARY KEY,
     architecture_type TEXT,        -- 'monolithic', 'microservices', 'serverless', 'hybrid'
@@ -997,47 +996,47 @@ project_architecture (
 )
 ```
 
-**Flujo:**
-1. Nexus analiza PRD y extrae features
-2. Para cada feature, muestra estrategias disponibles
-3. Usuario selecciona estrategia (o acepta recomendación)
-4. Sistema calcula costos totales
-5. **[NUEVO]** Nexus genera Architecture Layer Dashboard
-6. Usuario revisa y ajusta arquitectura si necesario
-7. Usuario confirma
-8. Decisiones se guardan y alimentan:
-   - ARCHITECTURE.md (generado automáticamente)
-   - Roadmap con tareas y builders asignados
+**Flow:**
+1. Nexus analyzes PRD and extracts features
+2. For each feature, shows available strategies
+3. User selects strategy (or accepts recommendation)
+4. System calculates total costs
+5. **[NEW]** Nexus generates Architecture Layer Dashboard
+6. User reviews and adjusts architecture if needed
+7. User confirms
+8. Decisions are saved and feed:
+   - ARCHITECTURE.md (automatically generated)
+   - Roadmap with tasks and assigned builders
 
 ---
 
 #### X. Guided Setup System
-`Categoría: DIFERENCIADOR` `Prioridad: ALTA`
+`Category: DIFFERENTIATOR` `Priority: HIGH`
 
-Sistema de guía paso a paso para implementar estrategias complejas:
+Step-by-step guidance system for implementing complex strategies:
 
-- **Trigger:** Se activa cuando el usuario elige una estrategia con `requires_agent=true` o `requires_microservice=true`
-- **Session Management:** Guarda progreso, permite pausar y continuar
-- **Step-by-Step Guidance:** Cada paso incluye:
-  - Explicación de POR QUÉ este paso es necesario
-  - Comandos EXACTOS a ejecutar
-  - Output ESPERADO
-  - Cómo VERIFICAR éxito
-  - Troubleshooting si falla
-- **Code Generation:** Genera código production-ready si el usuario lo necesita
-- **Progress Tracking:** Visual de pasos completados vs pendientes
-- **Educational Mode:** Explica conceptos técnicos en lenguaje simple
+- **Trigger:** Activates when user chooses a strategy with `requires_agent=true` or `requires_microservice=true`
+- **Session Management:** Saves progress, allows pause and resume
+- **Step-by-Step Guidance:** Each step includes:
+  - Explanation of WHY this step is necessary
+  - EXACT commands to execute
+  - EXPECTED output
+  - How to VERIFY success
+  - Troubleshooting if it fails
+- **Code Generation:** Generates production-ready code if user needs it
+- **Progress Tracking:** Visual of completed vs pending steps
+- **Educational Mode:** Explains technical concepts in simple language
 
-**Ejemplo de Guided Setup para "Smart Agent Sync":**
+**Guided Setup Example for "Smart Agent Sync":**
 
-| Paso | Título | Descripción |
-|------|--------|-------------|
-| 1 | Crear proyecto de agente | Set up Python FastAPI project |
-| 2 | Instalar LangChain | `pip install langchain langgraph` |
-| 3 | Definir tools del agente | Crear funciones custom para sync |
-| 4 | Probar agente localmente | Ejecutar escenarios de prueba |
-| 5 | Deploy a Railway | `railway up` |
-| 6 | Integrar con Next.js | Agregar llamadas API desde frontend |
+| Step | Title | Description |
+|------|-------|-------------|
+| 1 | Create agent project | Set up Python FastAPI project |
+| 2 | Install LangChain | `pip install langchain langgraph` |
+| 3 | Define agent tools | Create custom functions for sync |
+| 4 | Test agent locally | Run test scenarios |
+| 5 | Deploy to Railway | `railway up` |
+| 6 | Integrate with Next.js | Add API calls from frontend |
 
 **Database Schema:**
 
@@ -1045,66 +1044,66 @@ Sistema de guía paso a paso para implementar estrategias complejas:
 guided_setup_sessions (
     id UUID PRIMARY KEY,
     project_id UUID,
-    decision_id UUID,              -- Link a la decisión de estrategia
+    decision_id UUID,              -- Link to strategy decision
     strategy_id TEXT,
     current_step INT,
     total_steps INT,
     completed_steps JSONB,         -- [{step: 1, completed_at, notes}]
-    session_state JSONB,           -- Estado guardado
+    session_state JSONB,           -- Saved state
     status TEXT                    -- 'active', 'paused', 'completed'
 )
 ```
 
-**Interacción con Roadmap:**
-- Cada sesión de Guided Setup aparece como sub-tareas en el Roadmap
-- Al completar todos los pasos, la tarea principal se marca como completada
-- El progreso se refleja en tiempo real
+**Roadmap Interaction:**
+- Each Guided Setup session appears as sub-tasks in Roadmap
+- On completing all steps, main task is marked as completed
+- Progress reflects in real-time
 
 ---
 
 #### Y. Knowledge Base Indexer
-`Categoría: DIFERENCIADOR` `Prioridad: ALTA`
+`Category: DIFFERENTIATOR` `Priority: HIGH`
 
-Sistema de indexación de fuentes externas para mantener actualizada la base de conocimiento de Nexus:
+External source indexing system to keep Nexus knowledge base updated:
 
-- **Multi-Source Ingestion:** URLs, PDFs, documentos, imágenes, hojas de cálculo
-- **Crawl Sites:** Profundidad configurable para indexar sitios completos
-- **Entity Extraction:** LLM extrae automáticamente entidades (builders, tecnologías, módulos)
-- **Vector Storage:** Chunks almacenados con embeddings para RAG
-- **Auto-Fill Tables:** Entidades detectadas se mapean a tablas existentes
-- **Review Queue:** Admin aprueba/rechaza cambios sugeridos
-- **Source Linking:** Relación bidireccional fuente ↔ entidad
+- **Multi-Source Ingestion:** URLs, PDFs, documents, images, spreadsheets
+- **Crawl Sites:** Configurable depth to index complete sites
+- **Entity Extraction:** LLM automatically extracts entities (builders, technologies, modules)
+- **Vector Storage:** Chunks stored with embeddings for RAG
+- **Auto-Fill Tables:** Detected entities map to existing tables
+- **Review Queue:** Admin approves/rejects suggested changes
+- **Source Linking:** Bidirectional source ↔ entity relationship
 
-**Tipos de Fuentes Soportadas:**
+**Supported Source Types:**
 
-| Tipo | Método | Ejemplo |
+| Type | Method | Example |
 |------|--------|---------|
 | URL Single | Fetch + parse HTML | docs.clerk.com/pricing |
-| URL Crawl | Recursive fetch | Indexar todo stripe.com/docs |
-| PDF | PDF.js extraction | Manual de usuario |
-| Document | Parsers (.doc, .md) | Especificaciones técnicas |
-| Image | OCR (Tesseract/Vision) | Screenshots de documentación |
-| Spreadsheet | Row-by-row parsing | Comparativas de tecnologías |
+| URL Crawl | Recursive fetch | Index all stripe.com/docs |
+| PDF | PDF.js extraction | User manual |
+| Document | Parsers (.doc, .md) | Technical specifications |
+| Image | OCR (Tesseract/Vision) | Documentation screenshots |
+| Spreadsheet | Row-by-row parsing | Technology comparisons |
 
-**Entidades Destino:**
+**Target Entities:**
 
-| Entidad | Tablas Afectadas | Campos Auto-Extraídos |
-|---------|------------------|----------------------|
-| Builder | builders, builder_stack, builder_integrations | stack, integraciones, pricing, limitaciones |
-| Technology | technology_index | versión, pricing, free_tier, complejidad |
-| Module | module_catalog | sub_modules, complejidad, estimated_prompts |
-| Best Practice | builder_best_practices | categoría, descripción, ejemplo |
+| Entity | Affected Tables | Auto-Extracted Fields |
+|--------|-----------------|----------------------|
+| Builder | builders, builder_stack, builder_integrations | stack, integrations, pricing, limitations |
+| Technology | technology_index | version, pricing, free_tier, complexity |
+| Module | module_catalog | sub_modules, complexity, estimated_prompts |
+| Best Practice | builder_best_practices | category, description, example |
 
-**Flujo de Indexación:**
+**Indexing Flow:**
 
-1. Admin selecciona tipo de fuente y URL/archivo
-2. Selecciona entidad destino (builder, tecnología, etc.)
-3. Configura opciones (crawl depth, extract to KB, store in vector)
-4. Nexus procesa: fetch → chunk → embed → extract entities
-5. Entidades extraídas van a cola de revisión con confidence score
-6. Admin revisa: Approve / Modify / Reject / Skip
-7. Cambios aprobados se aplican a tablas correspondientes
-8. Source links creados para trazabilidad
+1. Admin selects source type and URL/file
+2. Selects target entity (builder, technology, etc.)
+3. Configures options (crawl depth, extract to KB, store in vector)
+4. Nexus processes: fetch → chunk → embed → extract entities
+5. Extracted entities go to review queue with confidence score
+6. Admin reviews: Approve / Modify / Reject / Skip
+7. Approved changes apply to corresponding tables
+8. Source links created for traceability
 
 **Database Schema:**
 
@@ -1114,7 +1113,7 @@ indexing_jobs (
     source_type TEXT,              -- 'url_single', 'url_crawl', 'pdf', 'doc', 'image', 'spreadsheet'
     source_url TEXT,
     target_entity_type TEXT,       -- 'builder', 'technology', 'module', 'best_practice'
-    target_entity_id UUID,         -- NULL si es nuevo
+    target_entity_id UUID,         -- NULL if new
     options JSONB,                 -- {extract_to_kb, store_in_vector, crawl_depth}
     status TEXT,                   -- 'pending', 'processing', 'completed', 'failed'
     progress_percent INT,
@@ -1149,34 +1148,34 @@ entity_review_queue (
 ---
 
 #### Z. Sequential Artifact Generation
-`Categoría: DIFERENCIADOR` `Prioridad: CRÍTICA`
+`Category: DIFFERENTIATOR` `Priority: CRITICAL`
 
-Generación uno por uno de artefactos con selección de tamaño y seguimiento de progreso:
+One-by-one artifact generation with size selection and progress tracking:
 
-- **Density Calculator:** Calcula complejidad del proyecto basado en módulos, sub-módulos, capas
-- **Tier Selection:** Usuario elige Compact/Standard/Unlimited con tokens y costos visibles
+- **Density Calculator:** Calculates project complexity based on modules, sub-modules, layers
+- **Tier Selection:** User chooses Compact/Standard/Unlimited with visible tokens and costs
 - **Sequential Generation:** PRD → Constitution → Architecture → Schema
-- **Real-time Progress:** Barra de progreso por artefacto con tokens usados
-- **Inline Preview:** Ver contenido generado inmediatamente al completar
-- **Edit on Complete:** Botón de edición disponible al terminar cada artefacto
+- **Real-time Progress:** Progress bar per artifact with tokens used
+- **Inline Preview:** See generated content immediately on completion
+- **Edit on Complete:** Edit button available when each artifact finishes
 
-**Tiers de Artefactos:**
+**Artifact Tiers:**
 
-| Tier | Tokens | Costo Est. | Contenido Incluido |
-|------|--------|------------|-------------------|
-| **Compact** | ~2,000 | ~$0.02 | Solo esencial, bullet points |
-| **Standard** | ~8,000 | ~$0.08 | Balanceado con user stories y acceptance criteria |
-| **Unlimited** | ~20,000 | ~$0.20 | Completo con ejemplos, edge cases, migration guides |
+| Tier | Tokens | Est. Cost | Included Content |
+|------|--------|-----------|------------------|
+| **Compact** | ~2,000 | ~$0.02 | Essentials only, bullet points |
+| **Standard** | ~8,000 | ~$0.08 | Balanced with user stories and acceptance criteria |
+| **Unlimited** | ~20,000 | ~$0.20 | Complete with examples, edge cases, migration guides |
 
-**Fórmula de Density Score:**
+**Density Score Formula:**
 
 ```
 Density Score = (modules × 100) + (sub_modules × 30) + (arch_layers × 50) + (custom_inputs × 80)
 
 Thresholds:
-< 500  = Compact disponible
-< 1500 = Standard mínimo
-> 1500 = Unlimited recomendado
+< 500  = Compact available
+< 1500 = Standard minimum
+> 1500 = Unlimited recommended
 ```
 
 **Database Schema:**
@@ -1186,7 +1185,7 @@ project_artifact_config (
     id UUID PRIMARY KEY,
     project_id UUID UNIQUE,
     selected_tier TEXT,            -- 'compact', 'standard', 'unlimited'
-    minimum_tier TEXT,             -- Tier mínimo calculado
+    minimum_tier TEXT,             -- Calculated minimum tier
     modules_count INT,
     sub_modules_count INT,
     architecture_layers_count INT,
@@ -1214,4 +1213,4 @@ artifact_generation_status (
 
 ---
 
-*— Fin del Documento —*
+*— End of Document —*
